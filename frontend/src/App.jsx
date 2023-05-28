@@ -1,10 +1,12 @@
 import "./App.css";
+import { Fragment } from "react";
+import Body from "./components/Body/Body";
 
 function App() {
   return (
-    <div>
-      <h1>Abuzar</h1>
-    </div>
+    <Fragment>
+      <Body />
+    </Fragment>
   );
 }
 

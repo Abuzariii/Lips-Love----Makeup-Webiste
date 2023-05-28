@@ -1,0 +1,15 @@
+.menu {
+    width: 100px;
+    height: 100vh;
+    background-color: rgb(244, 199, 82);
+    position: fixed;
+    border-right: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+.halo {
+    width: 260px;
+    margin-bottom: 130px;
+}

@@ -1,0 +1,17 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.X {
+    max-width: 100vw;
+    height: 300vh;
+    display: flex;
+    align-items: flex-start;
+}
+
+.b {
+    width: stretch;
+    height: 100%;
+    background-color: rgb(244, 199, 82);
+}
