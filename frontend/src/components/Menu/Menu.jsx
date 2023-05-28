@@ -7,10 +7,15 @@ export default function Menu() {
   return (
     <div className={classes.menu}>
       <Squash />
-      <div>
-        <HiShoppingBag></HiShoppingBag>
-        <p>Buy</p>
-      </div>
+      <motion.div
+        className={classes.shipping}
+        animate={{
+          rotate: -90,
+        }}
+      >
+        <HiShoppingBag size={40} />
+        <h4>Free Shipping</h4>
+      </motion.div>
 
       <motion.p
         className={classes.halo}
