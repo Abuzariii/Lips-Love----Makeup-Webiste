@@ -1,4 +1,4 @@
-import classes from "./Menu.module.css";
+import classes from "./Menu.module.sass";
 import { motion } from "framer-motion";
 import { Squash } from "hamburger-react";
 import { HiShoppingBag } from "react-icons/hi";

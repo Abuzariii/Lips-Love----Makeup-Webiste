@@ -1,4 +1,4 @@
-import classes from "./Body.module.css";
+import classes from "./Body.module.sass";
 import Menu from "../Menu/Menu";
 import icon from "../../images/icon.svg";
 
@@ -9,7 +9,14 @@ export default function Body() {
       <div className={classes.container}>
         <div className={classes.banner}>
           <div>
-            <h1>Abuzar</h1>
+            <div className={classes.off}>
+              <div className={classes.percent}>
+                <h3>-10%</h3>
+              </div>
+              <div className={classes.business}>
+                <h6>Business in Pakistan is 800 thousand</h6>
+              </div>
+            </div>
             <img src={icon} alt="Logo" />
             <div className={classes.shop}>
               <a href="nthng">Shop</a>
