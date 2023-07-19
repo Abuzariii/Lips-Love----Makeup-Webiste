@@ -1,5 +1,5 @@
 import classes from "./Body.module.sass";
-import Menu from "../Menu/Menu";
+import Menu from "../Menu/Menu.jsx";
 import icon from "../../images/icon.svg";
 
 export default function Body() {

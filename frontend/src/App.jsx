@@ -1,6 +1,6 @@
-import "./App.css";
+import "./App.sass";
 import { Fragment } from "react";
-import Body from "./components/Body/Body";
+import Body from "./components/Body/Body.jsx";
 
 function App() {
   return (

@@ -5,55 +5,95 @@ const mongoose = require("mongoose");
 const getItems = async (req, res) => {
   try {
     const items = await Makeup.find();
-    res.json(items);
+    console.log(items.length);
+    res.status(200).json(items);
   } catch (error) {
     res.status(500).json({ error: "An error occurred while retrieving items" });
   }
 };
 
-// Get unique items
-const getUniqueItems = async (req, res) => {
-  const { field } = req.body;
-
+// Get one item
+const getOneItem = async (req, res) => {
   try {
-    const uniqueItems = await Makeup.distinct(`${field}`);
-    res.json(uniqueItems);
+    const { id } = req.body;
+    const item = await Makeup.findById(id);
+    res.status(200).json(item);
   } catch (error) {
-    res
-      .status(500)
-      .json({ error: "An error occurred while retrieving unique items" });
+    res.status(500).json({ error: "No such item exists" });
   }
 };
 
-// Get number of unique items
-const getUniqueItemsCount = async (req, res) => {
-  const { field } = req.body;
-
+// Get all brands
+const getAllBrands = async (req, res) => {
   try {
-    const uniqueItems = await Makeup.aggregate([
-      {
-        $group: {
-          _id: `$${field}`,
-          count: { $sum: 1 },
-        },
-      },
-      {
-        $sort: {
-          count: -1, // 1 for ascending order, -1 for descending order
-        },
-      },
-    ]);
-    res.json(uniqueItems);
+    const brands = await Makeup.distinct("brand");
+    res.status(200).json(brands);
   } catch (error) {
-    res
-      .status(500)
-      .json({ error: "An error occurred while retrieving unique items" });
+    res.status(500).json({ error: "Error getting brands" });
+  }
+};
+
+// Get Items by Brand
+const getItemsByBrand = async (req, res) => {
+  try {
+    const { brand } = req.body;
+    const items = await Makeup.find({ brand: brand });
+    res.status(200).json(items);
+  } catch (error) {
+    res.status(500).json({ error: "Error getting items by brands" });
+  }
+};
+
+// Get all categories
+const getAllCategories = async (req, res) => {
+  try {
+    const category = await Makeup.distinct("category");
+    res.status(200).json(category);
+  } catch (error) {
+    res.status(500).json({ error: "Error getting categories" });
+  }
+};
+
+// Get Items by Category
+const getItemsByCategory = async (req, res) => {
+  try {
+    const { category } = req.body;
+    const items = await Makeup.find({ category: category });
+    res.status(200).json(items);
+  } catch (error) {
+    res.status(500).json({ error: "Error getting items by category" });
+  }
+};
+
+// Get all Product Types
+const getAllProductTypes = async (req, res) => {
+  try {
+    const product_type = await Makeup.distinct("product_type");
+    res.status(200).json(product_type);
+  } catch (error) {
+    res.status(500).json({ error: "Error getting categories" });
+  }
+};
+
+// Get Items by ProductType
+const getItemsByProductType = async (req, res) => {
+  try {
+    const { product_type } = req.body;
+    const items = await Makeup.find({ product_type: product_type });
+    res.status(200).json(items);
+  } catch (error) {
+    res.status(500).json({ error: "Error getting items by product type" });
   }
 };
 
 // Exports
 module.exports = {
   getItems,
-  getUniqueItems,
-  getUniqueItemsCount,
+  getOneItem,
+  getAllBrands,
+  getAllCategories,
+  getAllProductTypes,
+  getItemsByBrand,
+  getItemsByCategory,
+  getItemsByProductType,
 };
