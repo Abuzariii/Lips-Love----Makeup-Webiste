@@ -14,8 +14,9 @@ const getItems = async (req, res) => {
 
 // Get one item
 const getOneItem = async (req, res) => {
+  const id = req.query.id;
+  console.log(id);
   try {
-    const { id } = req.body;
     const item = await Makeup.findById(id);
     res.status(200).json(item);
   } catch (error) {
@@ -35,8 +36,8 @@ const getAllBrands = async (req, res) => {
 
 // Get Items by Brand
 const getItemsByBrand = async (req, res) => {
+  const brand = req.query.brand;
   try {
-    const { brand } = req.body;
     const items = await Makeup.find({ brand: brand });
     res.status(200).json(items);
   } catch (error) {
@@ -56,8 +57,8 @@ const getAllCategories = async (req, res) => {
 
 // Get Items by Category
 const getItemsByCategory = async (req, res) => {
+  const category = req.query.category;
   try {
-    const { category } = req.body;
     const items = await Makeup.find({ category: category });
     res.status(200).json(items);
   } catch (error) {
@@ -77,8 +78,8 @@ const getAllProductTypes = async (req, res) => {
 
 // Get Items by ProductType
 const getItemsByProductType = async (req, res) => {
+  const product_type = req.query.product_type;
   try {
-    const { product_type } = req.body;
     const items = await Makeup.find({ product_type: product_type });
     res.status(200).json(items);
   } catch (error) {

@@ -20,7 +20,7 @@ const router = express.Router();
 router.get("/get-items", getItems);
 
 // Get one item
-router.post("/get-item", getOneItem);
+router.get("/get-item", getOneItem);
 
 // Get all brands
 router.get("/brands", getAllBrands);
@@ -32,13 +32,13 @@ router.get("/categories", getAllCategories);
 router.get("/product-types", getAllProductTypes);
 
 // Get Item by Brand
-router.post("/get-by-brand", getItemsByBrand);
+router.get("/get-by-brand", getItemsByBrand);
 
 // Get Item by Category
-router.post("/get-by-category", getItemsByCategory);
+router.get("/get-by-category", getItemsByCategory);
 
 // Get Item by ProductType
-router.post("/get-by-product-type", getItemsByProductType);
+router.get("/get-by-product-type", getItemsByProductType);
 
 // Exports
 module.exports = router;
