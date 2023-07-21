@@ -1,4 +1,3 @@
-// const inter = Inter({ subsets: ["latin"] });
 import { DataProvider } from "@/Context/dataContext";
 
 export default function RootLayout({ children }) {

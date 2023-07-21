@@ -1,5 +1,4 @@
-const Makeup = require("../MongoDB/makeup");
-const mongoose = require("mongoose");
+const Makeup = require("../../MongoDB/makeup");
 
 // Get all Items
 const getItems = async (req, res) => {

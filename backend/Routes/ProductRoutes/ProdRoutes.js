@@ -9,7 +9,7 @@ const {
   getItemsByBrand,
   getItemsByCategory,
   getItemsByProductType,
-} = require("../Controllers/Controllers");
+} = require("../../Controllers/Products/ProductsControllers");
 
 // Initializations
 const router = express.Router();
