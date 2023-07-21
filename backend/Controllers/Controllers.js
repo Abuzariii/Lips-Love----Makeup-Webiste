@@ -5,7 +5,6 @@ const mongoose = require("mongoose");
 const getItems = async (req, res) => {
   try {
     const items = await Makeup.find();
-    console.log(items.length);
     res.status(200).json(items);
   } catch (error) {
     res.status(500).json({ error: "An error occurred while retrieving items" });
