@@ -8,6 +8,9 @@ export default function Home() {
       <Link href={"/about"}>To About</Link>
       <br />
       <br />
+      <Link href={"/login"}>To Login</Link>
+      <br />
+      <br />
       <Fetch />
     </main>
   );
