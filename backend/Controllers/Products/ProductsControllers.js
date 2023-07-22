@@ -1,3 +1,4 @@
+const jwt = require("jsonwebtoken");
 const Makeup = require("../../MongoDB/makeup");
 
 // Get all Items
@@ -6,19 +7,31 @@ const getItems = async (req, res) => {
     const items = await Makeup.find();
     res.status(200).json(items);
   } catch (error) {
-    res.status(500).json({ error: "An error occurred while retrieving items" });
+    res.status(500).json(error);
   }
 };
 
 // Get one item
-const getOneItem = async (req, res) => {
-  const id = req.query.id;
-  console.log(id);
+const getOneItem = async (req, res, next) => {
+  const token = req.headers.authorization;
+  if (!token) {
+    return res.status(401).json({ message: "No token provided." });
+  }
+
   try {
-    const item = await Makeup.findById(id);
-    res.status(200).json(item);
+    const decoded = jwt.verify(token, "abuzar");
+    req.user = decoded; // Save the user information in the request object for later use
+
+    // Proceed with the database query and sending the response
+    const id = req.query.id;
+    try {
+      const item = await Makeup.findById(id);
+      res.status(200).json(item);
+    } catch (error) {
+      res.status(500).json({ error: "No such item exists" });
+    }
   } catch (error) {
-    res.status(500).json({ error: "No such item exists" });
+    res.status(403).json(error); // Return the error response here if token verification fails
   }
 };
 
@@ -39,7 +52,7 @@ const getItemsByBrand = async (req, res) => {
     const items = await Makeup.find({ brand: brand });
     res.status(200).json(items);
   } catch (error) {
-    res.status(500).json({ error: "Error getting items by brands" });
+    res.status(500).json({ error: "Error getting items by brand" });
   }
 };
 
