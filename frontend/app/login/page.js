@@ -4,7 +4,13 @@ export const metadata = {
 };
 
 import Login from "@/components/Login";
+import JWT from "@/components/JWT";
 
 export default function LoginPage() {
-  return <Login />;
+  return (
+    <div>
+      <Login />
+      <JWT />
+    </div>
+  );
 }

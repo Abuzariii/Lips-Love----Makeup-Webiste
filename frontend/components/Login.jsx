@@ -8,30 +8,26 @@ export default function Login() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log({
-      email: emailRef.current.value,
-      password: passwordRef.current.value,
-    });
 
-    // try {
-    //   const response = await fetch("http://localhost:4000/login", {
-    //     method: "POST",
-    //     headers: {
-    //       "Content-Type": "application/json",
-    //     },
-    //     body: JSON.stringify({
-    //       email: emailRef.current.value,
-    //       password: passwordRef.current.value,
-    //     }),
-    //   });
+    try {
+      const response = await fetch("http://localhost:4000/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: emailRef.current.value,
+          password: passwordRef.current.value,
+        }),
+      });
 
-    //   const data = await response.json();
-    //   console.log(data);
-    //   // Storing data in localStorage
-    //   localStorage.setItem("jwt-token", data);
-    // } catch (error) {
-    //   console.error("Error:", error);
-    // }
+      const data = await response.json();
+      console.log(data);
+      // Storing data in localStorage
+      localStorage.setItem("jwt-token", data);
+    } catch (error) {
+      console.error("Error:", error);
+    }
   };
 
   return (
@@ -42,7 +38,7 @@ export default function Login() {
       <div style={{ marginBottom: "10px" }}>
         <label>Email:</label>
         <input
-          type="email"
+          //   type="email"
           ref={emailRef}
           style={{ width: "100%", padding: "5px" }}
           required
@@ -51,7 +47,7 @@ export default function Login() {
       <div style={{ marginBottom: "10px" }}>
         <label>Password:</label>
         <input
-          type="password"
+          //   type="password"
           ref={passwordRef}
           style={{ width: "100%", padding: "5px" }}
           required

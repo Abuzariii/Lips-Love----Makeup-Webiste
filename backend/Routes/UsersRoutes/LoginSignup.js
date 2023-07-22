@@ -1,6 +1,6 @@
 // Imports
 const express = require("express");
-const { signUp, Login } = require("../../Controllers/LoginSignup/LoginSignup");
+const { signUp, Login } = require("../../Controllers/Users/LoginSignup");
 
 // Initializations
 const router = express.Router();
