@@ -1,4 +1,3 @@
-const jwt = require("jsonwebtoken");
 const Makeup = require("../../MongoDB/makeup");
 
 // Get all Items
@@ -12,16 +11,8 @@ const getItems = async (req, res) => {
 };
 
 // Get one item
-const getOneItem = async (req, res, next) => {
-  const token = req.headers.authorization;
-  if (!token) {
-    return res.status(401).json({ message: "No token provided." });
-  }
-
+const getOneItem = async (req, res) => {
   try {
-    const decoded = jwt.verify(token, "abuzar");
-    req.user = decoded; // Save the user information in the request object for later use
-
     // Proceed with the database query and sending the response
     const id = req.query.id;
     try {
