@@ -1,4 +1,5 @@
 import { DataProvider } from "@/Context/dataContext";
+import "../Styles/globals.css";
 
 export default function RootLayout({ children }) {
   return (
