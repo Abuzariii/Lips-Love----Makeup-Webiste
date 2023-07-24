@@ -5,6 +5,7 @@ export default function Cover() {
   return (
     <div className={classes.cover}>
       <Navbar />
+      {/* <div className={classes.menu}></div> */}
     </div>
   );
 }

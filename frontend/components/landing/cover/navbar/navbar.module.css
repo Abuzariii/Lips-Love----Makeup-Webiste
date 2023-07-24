@@ -1,7 +1,37 @@
 .navbar{
-    height: 20vh;
-    /* background-color: red; */
+    height: 15vh;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
+    align-items: flex-end;
+}
+.ham{
+    z-index: 2;
+}
+.emilia{
+    height: 70px;
+}
+.shop{
+    border: 0.1px solid rgb(0, 0, 0, 0.1);
+    height: 60px;
+    width: 125px;
+    display: flex;
+    justify-content: center;
     align-items: center;
+}
+
+/* 
+    Media Queries
+*/
+@media(max-width:1000px){
+    .navbar{
+        height: 10vh;
+        align-items: center;
+        border-bottom: 1px solid rgb(0, 0, 0, 0.5);
+    }
+    .emilia{
+        height: 38px;
+    }
+    .shop{
+        display: none;
+    }
 }

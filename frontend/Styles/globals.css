@@ -8,6 +8,9 @@ body {
     padding: 0;
     margin: 0;
 }
+*:focus {
+    outline: none;
+}
 
 /* width */
 ::-webkit-scrollbar {
