@@ -45,7 +45,7 @@ export default function Menu({ isMenuOpen }) {
         variants={itemVariants}
         initial="hidden"
         animate={isMenuOpen ? "visible" : "hidden"}
-        transition={{ delay: 0.5, duration: 0.5 }}
+        transition={{ delay: 0.7, duration: 0.5 }}
       >
         ABOUT
       </motion.h1>
@@ -54,7 +54,7 @@ export default function Menu({ isMenuOpen }) {
         variants={itemVariants}
         initial="hidden"
         animate={isMenuOpen ? "visible" : "hidden"}
-        transition={{ delay: 0.5, duration: 0.5 }}
+        transition={{ delay: 0.9, duration: 0.5 }}
       >
         SHOP
       </motion.h1>
@@ -63,7 +63,7 @@ export default function Menu({ isMenuOpen }) {
         variants={itemVariants}
         initial="hidden"
         animate={isMenuOpen ? "visible" : "hidden"}
-        transition={{ delay: 0.5, duration: 0.5 }}
+        transition={{ delay: 1.1, duration: 0.5 }}
       >
         BLOG
       </motion.h1>
@@ -72,7 +72,7 @@ export default function Menu({ isMenuOpen }) {
         variants={itemVariants}
         initial="hidden"
         animate={isMenuOpen ? "visible" : "hidden"}
-        transition={{ delay: 0.5, duration: 0.5 }}
+        transition={{ delay: 1.3, duration: 0.5 }}
       >
         CONTACT
       </motion.h1>

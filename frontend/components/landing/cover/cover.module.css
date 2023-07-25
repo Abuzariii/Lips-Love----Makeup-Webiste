@@ -1,4 +1,16 @@
 .cover{
     background-color: rgb(244, 199, 82);
     height: 120vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }
+
+/*
+    Media Queries
+*/
+/* @media(max-width:900px){
+    .cover{
+        height: 100vh;
+    }
+} */
