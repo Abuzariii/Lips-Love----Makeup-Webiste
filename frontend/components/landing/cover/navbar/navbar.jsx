@@ -17,7 +17,7 @@ import { useState, useEffect } from "react";
 // // // // Main FUnction // // //
 //                               //
 
-export default function Navbar() {
+export default function Navbar({ onMenuClick }) {
   const [isOpen, setOpen] = useState(false);
   const [hamburgerSize, setHamburgerSize] = useState(40);
   const [isLargeScreen, setIsLargeScreen] = useState(false);
@@ -39,7 +39,7 @@ export default function Navbar() {
 
   return (
     <div className={classes.navbar}>
-      <div className={classes.ham}>
+      <div className={classes.ham} onClick={onMenuClick}>
         <Hamburger
           toggled={isOpen}
           toggle={setOpen}
@@ -49,6 +49,7 @@ export default function Navbar() {
           }}
           size={hamburgerSize}
           distance="lg"
+          color={isOpen ? "white" : "black"}
         />
       </div>
 

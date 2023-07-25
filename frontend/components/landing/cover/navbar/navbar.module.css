@@ -10,6 +10,9 @@
 .emilia{
     height: 70px;
 }
+.emilia:hover{
+    cursor: pointer;
+}
 .shop{
     border: 0.1px solid rgb(0, 0, 0, 0.1);
     height: 60px;
@@ -17,7 +20,18 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    /* Fill styles */
+    background-size: 200% 200%;
+    transition: background-position 400ms, color 400ms ease, border-color 400ms ease;
 }
+.shop:hover{
+    cursor: pointer;
+    border: 0.1px solid rgb(0, 0, 0, 0);
+    background-image: linear-gradient(to top, #ffffff 51%, transparent 50%);
+    background-position: 0 100%;
+    transition: background-position 400ms, color 400ms ease, border-color 400ms ease;
+}
+
 
 /* 
     Media Queries
