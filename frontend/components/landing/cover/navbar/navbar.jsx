@@ -1,4 +1,5 @@
 "use client";
+
 import { Playfair_Display } from "@next/font/google";
 
 const pfrDisplay = Playfair_Display({
@@ -12,6 +13,7 @@ import EmiliaBrewster from "../../../../public/EmiliaBrewster.svg";
 import { Squash as Hamburger } from "hamburger-react";
 import { FaShopify } from "react-icons/fa";
 import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 
 //                               //
 // // // // Main Function // // //
@@ -37,9 +39,25 @@ export default function Navbar({ onMenuClick }) {
     };
   }, []);
 
+  const [showShopify, setShowShopify] = useState(false);
+  useEffect(() => {
+    setShowShopify(false);
+    const timeoutId = setTimeout(() => {
+      setShowShopify(true);
+    }, 200);
+
+    return () => clearTimeout(timeoutId);
+  }, []);
+
   return (
     <div className={classes.navbar}>
-      <div className={classes.ham} onClick={onMenuClick}>
+      <motion.div
+        className={classes.ham}
+        onClick={onMenuClick}
+        initial={{ y: -100, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.6, ease: "easeOut", delay: 0 }}
+      >
         <Hamburger
           toggled={isOpen}
           toggle={setOpen}
@@ -51,16 +69,24 @@ export default function Navbar({ onMenuClick }) {
           distance="lg"
           color={isOpen ? "white" : "black"}
         />
-      </div>
+      </motion.div>
 
       <Image src={EmiliaBrewster} alt={"xyz"} className={classes.emilia} />
 
       {isLargeScreen ? (
-        <div className={classes.shop}>
+        <motion.div
+          className={classes.shop}
+          initial={{ y: -100, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.6, ease: "easeOut", delay: 0 }}
+        >
           <h3 className={pfrDisplay.className}>SHOP</h3>
-        </div>
+        </motion.div>
       ) : (
-        <FaShopify size={30} />
+        <FaShopify
+          size={30}
+          className={`${classes.fade} ${showShopify ? classes.fadeIn : ""}`}
+        />
       )}
     </div>
   );
