@@ -4,6 +4,7 @@ import classes from "./cover.module.css";
 import Navbar from "./navbar/navbar";
 import Menu from "./menu/menu";
 import Banner from "./banner/banner";
+import BottomBanner from "./bottom-banner/bottom-banner";
 import { useState } from "react";
 
 export default function Cover() {
@@ -17,6 +18,7 @@ export default function Cover() {
       <Navbar isMenuOpen={isMenuOpen} onMenuClick={handleMenuClick} />
       <Menu isMenuOpen={isMenuOpen} />
       <Banner />
+      <BottomBanner />
     </div>
   );
 }

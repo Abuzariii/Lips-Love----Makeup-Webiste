@@ -27,7 +27,7 @@ export default function Banner() {
       </div>
 
       <div className={classes.lips}>
-        <Image src={Rotate} className={classes.rotate}></Image>
+        <Image src={Rotate} alt={"xyz"} className={classes.rotate}></Image>
       </div>
     </div>
   );

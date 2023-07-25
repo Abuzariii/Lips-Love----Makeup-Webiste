@@ -4,6 +4,14 @@ export default function Home() {
   return (
     <main>
       <Cover />
+      <div
+        style={{
+          height: "30vh",
+          width: "100%",
+          background: "white",
+          marginTop: "30px",
+        }}
+      ></div>
     </main>
   );
 }

@@ -10,6 +10,7 @@
 }
 .emilia{
     height: 70px;
+    width: auto;
 }
 .emilia:hover{
     cursor: pointer;

@@ -1,10 +1,8 @@
 .banner{
     width: 70%;
-    height: 46%;
+    height: 43%;
     margin-top: 7%;
     display: flex;
-    justify-content: center;
-    align-items: center;
 }
 .banner > div{
     height: 100%;
@@ -43,6 +41,7 @@
     background: url("../../../../public/LIPS.jpeg");
     background-size: 100%;
     background-position: center;
+    box-shadow: -1px 38px 50px 4px rgba(197, 138, 58, 0.92);
 }
 @-webkit-keyframes rotating
     {
@@ -108,8 +107,7 @@
     }
     .banner{
         flex-direction: column;
-        width: 90%;
-        height: 46%;
+        height: 56vh;
         margin-top: 0;
     }
     .banner > div{

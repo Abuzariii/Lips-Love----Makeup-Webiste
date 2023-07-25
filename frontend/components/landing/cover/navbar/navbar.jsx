@@ -14,7 +14,7 @@ import { FaShopify } from "react-icons/fa";
 import { useState, useEffect } from "react";
 
 //                               //
-// // // // Main FUnction // // //
+// // // // Main Function // // //
 //                               //
 
 export default function Navbar({ onMenuClick }) {
@@ -26,7 +26,7 @@ export default function Navbar({ onMenuClick }) {
     const handleResize = () => {
       const newHamburgerSize = window.innerWidth < 600 ? 25 : 40;
       setHamburgerSize(newHamburgerSize);
-      setIsLargeScreen(window.innerWidth > 600);
+      setIsLargeScreen(window.innerWidth > 900);
     };
 
     handleResize(); // Initial call to set the correct screen width and hamburger size on page load
@@ -53,7 +53,7 @@ export default function Navbar({ onMenuClick }) {
         />
       </div>
 
-      <Image src={EmiliaBrewster} alt={""} className={classes.emilia} />
+      <Image src={EmiliaBrewster} alt={"xyz"} className={classes.emilia} />
 
       {isLargeScreen ? (
         <div className={classes.shop}>

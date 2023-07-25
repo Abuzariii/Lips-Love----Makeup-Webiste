@@ -1,16 +1,17 @@
 .cover{
     background-color: rgb(244, 199, 82);
-    height: 120vh;
+    height: 140vh;
     display: flex;
     align-items: center;
+    justify-content: space-between;
     flex-direction: column;
 }
 
 /*
     Media Queries
 */
-/* @media(max-width:900px){
+@media(max-width:900px){
     .cover{
-        height: 100vh;
+        height: 110vh;
     }
-} */
+}
