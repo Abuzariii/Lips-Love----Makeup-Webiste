@@ -1,0 +1,127 @@
+.emilia{
+    width: 100%;
+    height: 110vh;
+    background-color: rgb(246, 242, 238);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.emilia > div{
+    height: 75vh;
+}
+.ingredients {
+  width: 28%;
+  display: flex;
+  flex-direction: column;
+}
+.ingredients > div{
+    width: 100%;
+}
+.ingredients > div:nth-child(1){
+    background-image: url("../../../public/Lips2.jpg");
+    background-size: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 70%;
+}
+.ingredients > div:nth-child(2){
+    height: 47%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.ingredients p{
+    font-size: 1.1rem;
+    padding-top: 35px;
+    padding-right: 45px;
+    position: relative;
+}
+.ingredients p::before, .testimonials p::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 8%;
+    height: 100%;
+    border-top: 1px solid black;
+    box-sizing: border-box;
+}
+
+
+.testimonials {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+}
+.testimonials > div{
+    width: 100%;
+    height: 50%;
+}
+.testimonials p{
+    font-size: 1.1rem;
+    padding-top: 35px;
+    padding-right: 130px;
+    margin-bottom: 30px;
+    position: relative;
+}
+.testimonials p, .sign{
+    margin-left: 20%;
+}
+.testimonials > div:nth-child(2){
+    background-image: url("../../../public/face.jpg");
+    background-size: 55%;
+    background-position: left;
+    background-repeat: no-repeat;
+    margin-left: 20%;
+}
+.lips3{
+    background-image: url("../../../public/Lips3.jpg");
+    background-size: 90%;
+    background-position: left;
+    background-repeat: no-repeat;
+    height: 220px;
+    width: 152px;
+    position: absolute;
+    right: 10%;
+}
+
+/* 
+    Media Queries
+*/
+@media(max-width:900px) {
+    .emilia{
+        flex-direction: column;
+        height: 130vh;
+    }
+    .emilia > div{
+        width: 90%;
+        height: 45%;
+    }
+    .ingredients p, .testimonials p{
+        font-size: 0.9rem;
+        word-spacing: 1px;
+        padding-top: 20px;
+        padding-right: 25px;
+        font-weight: 600;
+    }
+    .testimonials{
+        flex-direction: column-reverse;
+    }
+    .testimonials p{
+        margin-bottom: 50px;
+    }
+    .testimonials p, .sign{
+        margin-left: 0%;
+    }
+    .testimonials > div:nth-child(2){
+        background-size: 70%;
+        margin-left: 0%;
+    }
+    .lips3{
+        height: 160px;
+        width: 102px;
+        position: absolute;
+        right: 2%;
+        top: 185%;
+    }
+}

@@ -1,17 +1,11 @@
 import Cover from "@/components/landing/cover/cover";
+import Emilia from "@/components/landing/emilia/emilia";
 
 export default function Home() {
   return (
     <main>
       <Cover />
-      <div
-        style={{
-          height: "30vh",
-          width: "100%",
-          background: "white",
-          marginTop: "30px",
-        }}
-      ></div>
+      <Emilia />
     </main>
   );
 }
