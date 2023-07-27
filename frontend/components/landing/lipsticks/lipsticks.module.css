@@ -1,0 +1,160 @@
+.lipsticks{
+    height: 90vh;
+    width: 100%;
+    background: linear-gradient(to top, rgb(246, 242, 238), rgb(255, 254, 237));
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.lipsticks > div{
+    height: 50%;
+}
+.upper{
+    display: flex;
+    width: 76%;
+}
+.upper > div{
+    height: 100%;
+    width: 50%;
+}
+.play_create{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+.play_create > h1{
+    font-weight: 600;
+    font-size: 3.5rem;
+    margin-right: 40px;
+}
+.formulas {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.formulas p{
+    font-size: 1.1rem;
+    padding-top: 35px;
+    margin-left: 105px;
+    position: relative;
+}
+.formulas p::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 8%;
+    height: 100%;
+    border-top: 1px solid black;
+    box-sizing: border-box;
+}
+.lower{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-end;
+}
+.lower > div{ 
+    height: 80%;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+}
+.lipsticks_slider > div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50%;
+    width: 7%;
+
+    flex-direction: column;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    transition: height 0.2s ease;
+}
+.lipsticks_slider > div:hover{
+    cursor: pointer;
+    height: 75%;
+}
+.golden_holiday{
+    background-image: url("../../../public/GoldenHoliday.png");
+}
+.deep_fuchsia{
+    background-image: url("../../../public/deepFuchsia.png");
+}
+.wine_red{
+    background-image: url("../../../public/wineRed.png");
+}
+.queen_rose{
+    background-image: url("../../../public/queenRose.png");
+}
+.candy_kiss{
+    background-image: url("../../../public/candyKiss.png");
+}
+.lipsticks_slider > div > div{
+    margin-top: -350%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.desc {
+    height: 80px;
+    width: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.desc > div{
+    height: 20px;
+    width: 20px;
+    background-color: red;
+    border-radius: 50%;
+}
+.lipsticks_slider > div > div > p, .desc > p{
+    font-weight: 600;
+    letter-spacing: 1px;
+    max-width: 80px;
+    text-align: center;
+}
+
+/* 
+    Media Queries
+*/
+@media(max-width:900px){
+    .lipsticks{
+        height: 60vh;
+    }
+    .lipsticks > div{
+        width: 90%;
+    }
+    .upper{
+        flex-direction: column;
+    }
+    .upper > div{
+        height: 50%;
+        width: 100%;
+    }
+    .play_create > h1{
+        font-weight: 600;
+        font-size: 1.5rem;
+        margin-right:120px;
+        line-height: 35px;
+    }
+    .formulas {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+    }
+    .formulas p{
+        font-size: 0.9rem;
+        word-spacing: 1px;
+        padding-top: 20px;
+        font-weight: 600;
+        margin-left: 0px;
+    }
+}

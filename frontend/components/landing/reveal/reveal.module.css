@@ -5,7 +5,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    color: rgb(235, 14, 14);
+    color: rgb(169, 7, 35);
 }
 .reveal > div{
     height: 90%;
@@ -42,8 +42,9 @@
     border-radius: 3rem;
     padding: 20px 33px;
     letter-spacing: 1px;
-    border: 1px solid rgb(235, 14, 14);
-    color: rgb(235, 14, 14);
+    border: 1px solid rgb(169, 7, 35);
+    color: rgb(169, 7, 35);
+    
     transition: transform 0.3s ease;
 }
 .about > button:hover{
