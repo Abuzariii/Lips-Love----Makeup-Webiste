@@ -1,0 +1,113 @@
+.footer{
+    width: 100%;
+    height: 100vh;
+    background-color: rgb(169, 7, 35);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+.upperDiv{
+    width: 80%;
+    height: 60%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.lipslove{
+    width: 40%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.lipslove > h1{
+    font-size: 5rem;
+    margin-bottom: 100px;
+}
+.lipslove > p{
+    font-size: 1.1rem;
+    word-spacing: 1px;
+}
+.links{
+    width: 40%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.links > div{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.pages > *, .contacts > *{
+    font-weight: 600;
+}
+.pages > h3, .contacts > h3{
+    margin-bottom: 20px;
+    font-size: 1.4rem;
+}
+.pages > p, .contacts > p{
+    margin-top: 20px;
+}
+.contacts > div{
+    margin-top: 30px;
+    max-width: 150px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.contacts > div > *{
+    transition: transform 0.1s ease;
+}
+.contacts > div > *:hover{
+    cursor: pointer;
+    transform: scale(1.3);
+}
+.lowerDiv{
+    width: 80%;
+    height: 10%;
+    border-top: 0.1px solid rgba(255, 255, 255, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.lowerDiv > div{
+    display: flex;
+}
+.lowerDiv > div > a{
+    text-decoration: none;
+    color: white;
+    margin-left: 5px;
+}
+
+/* 
+    Media Querie
+*/
+@media(max-width:900px){
+    .footer{
+        height: 120vh;
+    }
+    .upperDiv{
+        flex-direction: column;
+        height: 70%;
+        width: 90%;
+    }
+    .lipslove, .links{
+        width: 100%;
+    }
+    .lipslove > h1{
+        font-size: 4rem;
+    }
+    .lipslove > p{
+        font-size: 1rem;
+    }
+    .pages > h3, .contacts > h3{
+        margin-top: 80px;
+    }
+    .lowerDiv{
+        width: 90%;
+    }
+}

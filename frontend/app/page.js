@@ -2,6 +2,7 @@ import Cover from "@/components/landing/cover/cover";
 import Emilia from "@/components/landing/emilia/emilia";
 import Reveal from "@/components/landing/reveal/reveal";
 import Lipsticks from "@/components/landing/lipsticks/lipsticks";
+import Footer from "@/components/landing/footer/footer";
 
 export default function Home() {
   return (
@@ -10,6 +11,7 @@ export default function Home() {
       <Emilia />
       <Reveal />
       <Lipsticks />
+      <Footer />
     </main>
   );
 }
