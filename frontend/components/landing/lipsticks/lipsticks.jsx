@@ -1,4 +1,5 @@
 "use client";
+
 import { Poiret_One, Roboto } from "@next/font/google";
 const roboto = Roboto({
   weight: "300",
@@ -30,15 +31,6 @@ export default function Lipsticks() {
       </div>
       <div className={classes.lower}>
         <div className={classes.lipsticks_slider}>
-          <div className={classes.golden_holiday}>
-            <div>
-              <div className={classes.desc}>
-                <div className={classes.gldClr}></div>
-                <p className={roboto.className}>$20</p>
-              </div>
-              <p className={roboto.className}>GOLDEN HOLIDAY</p>
-            </div>
-          </div>
           <div className={classes.deep_fuchsia}>
             <div>
               <div className={classes.desc}>
@@ -48,6 +40,16 @@ export default function Lipsticks() {
               <p className={roboto.className}>DEEP FUCHSIA</p>
             </div>
           </div>
+          <div className={classes.golden_holiday}>
+            <div>
+              <div className={classes.desc}>
+                <div className={classes.gldClr}></div>
+                <p className={roboto.className}>$20</p>
+              </div>
+              <p className={roboto.className}>GOLDEN HOLIDAY</p>
+            </div>
+          </div>
+
           <div className={classes.wine_red}>
             <div>
               <div className={classes.desc}>
