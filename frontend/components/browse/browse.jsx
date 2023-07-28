@@ -13,8 +13,19 @@ export default function Browse() {
   }, []);
   return (
     <div className={classes.browse}>
-      <div>{data && <h1>All Items: {data.length}</h1>}</div>
-      <div>{!data && <h1>All Items: 0</h1>}</div>
+      {data &&
+        data
+          .slice()
+          .reverse()
+          .map((product, index) => (
+            <div key={product._id}>
+              <img src={product.image_link} alt="xyz" />
+              <h1>{index}</h1>
+              <h2>{product.name}</h2>
+              <h3>{product.brand}</h3>
+              <h3>{product.price + " " + product.currency}</h3>
+            </div>
+          ))}
     </div>
   );
 }

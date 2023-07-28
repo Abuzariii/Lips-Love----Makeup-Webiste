@@ -1,11 +1,12 @@
-.browse{
+.item  {
     min-height: 100vh;
     min-width: 100%;
     display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
+    flex-wrap: wrap;
+    justify-content: center;
 }
-.browse > div{
+
+.item >div {
     height: 400px;
     width: 320px;
     display: flex;
@@ -16,7 +17,8 @@
     margin: 10px;
     border: 1px solid black;
 }
-.browse img{
+
+.item img {
     max-height: 100px;
     width: auto;
 }

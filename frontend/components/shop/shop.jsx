@@ -39,15 +39,24 @@ export default function Shop() {
         <h1 className={cinzel.className}>SHOP</h1>
         <p className={roboto300.className}>Our Products</p>
       </div>
+      {/* Brands */}
       <div className={classes.brands}>
         <h1>Check out our Brands</h1>
         <div>
           {brands &&
             brands.map((brand, index) => (
-              <h1 key={index}>{brand.toUpperCase()}</h1>
+              <h1 key={index}>
+                <Link
+                  className="link"
+                  href={"/brands/" + brand.split(" ").join("_")}
+                >
+                  {brand.toUpperCase()}
+                </Link>
+              </h1>
             ))}
         </div>
       </div>
+      {/* Product Types */}
       <div className={classes.brands}>
         <h1>Check All our Products</h1>
         <div>
@@ -57,6 +66,7 @@ export default function Shop() {
             ))}
         </div>
       </div>
+      {/* Categories */}
       <div className={classes.brands}>
         <h1>Shop by Categories</h1>
         <div>

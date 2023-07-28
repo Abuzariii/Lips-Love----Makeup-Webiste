@@ -16,6 +16,15 @@ export const fetchBrands = (setBrands) => {
     })
     .catch((error) => console.error("Error fetching data:", error));
 };
+export const fetchByBrand = (setItems, brand) => {
+  fetch("http://localhost:4000/get-by-brand?brand=" + brand)
+    .then((response) => response.json())
+    .then((jsonData) => {
+      setItems(jsonData);
+      console.log(jsonData);
+    })
+    .catch((error) => console.error("Error fetching data:", error));
+};
 export const fetchCategories = (setCategories) => {
   fetch("http://localhost:4000/categories")
     .then((response) => response.json())

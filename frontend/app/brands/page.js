@@ -1,3 +1,7 @@
-export default function Brands() {
-  return <h1>Brands </h1>;
+export default function BrandsPage() {
+  return (
+    <div>
+      <h1>Brands Page</h1>
+    </div>
+  );
 }
