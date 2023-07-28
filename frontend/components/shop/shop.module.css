@@ -29,7 +29,16 @@
     align-items: center;
 }
 .shopOurProducts > h1{
-    font-size: 8rem;
+    font-size: 9rem;
+}
+.brands > div{
+    display: flex;
+    flex-direction: row;
+    overflow-x: scroll;
+}
+.brands h1{
+    white-space: nowrap;
+    margin: 20px;
 }
 
 /*

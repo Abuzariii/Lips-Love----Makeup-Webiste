@@ -1,3 +1,5 @@
-export default function Browse() {
-  return <h1>Browse</h1>;
+import Browse from "@/components/browse/browse";
+
+export default function BrowsePage() {
+  return <Browse />;
 }

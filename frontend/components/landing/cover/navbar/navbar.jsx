@@ -69,7 +69,7 @@ export default function Navbar({ onMenuClick }) {
       <Image src={EmiliaBrewster} alt={"xyz"} className={classes.emilia} />
 
       {isLargeScreen ? (
-        <Link href={"/shop"} className="shop-link">
+        <Link href={"/shop"} className="link">
           <motion.div
             className={classes.shop}
             initial={{ y: -100, opacity: 0 }}
@@ -80,7 +80,7 @@ export default function Navbar({ onMenuClick }) {
           </motion.div>
         </Link>
       ) : (
-        <Link href={"/shop"} className="shop-link">
+        <Link href={"/shop"} className="link">
           <FaShopify
             size={30}
             className={`${classes.fade} ${showShopify ? classes.fadeIn : ""}`}
