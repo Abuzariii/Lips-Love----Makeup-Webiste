@@ -1,12 +1,6 @@
 "use client";
 
-import { Playfair_Display } from "@next/font/google";
-
-const pfrDisplay = Playfair_Display({
-  weight: "400",
-  subsets: ["latin"],
-});
-
+import { pfrDisplay } from "@/components/utils/fonts";
 import classes from "./navbar.module.css";
 import Image from "next/image";
 import EmiliaBrewster from "../../../../public/EmiliaBrewster.svg";
@@ -14,6 +8,7 @@ import { Squash as Hamburger } from "hamburger-react";
 import { FaShopify } from "react-icons/fa";
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 //                               //
 // // // // Main Function // // //
@@ -74,19 +69,23 @@ export default function Navbar({ onMenuClick }) {
       <Image src={EmiliaBrewster} alt={"xyz"} className={classes.emilia} />
 
       {isLargeScreen ? (
-        <motion.div
-          className={classes.shop}
-          initial={{ y: -100, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.6, ease: "easeOut", delay: 0 }}
-        >
-          <h3 className={pfrDisplay.className}>SHOP</h3>
-        </motion.div>
+        <Link href={"/shop"} className="shop-link">
+          <motion.div
+            className={classes.shop}
+            initial={{ y: -100, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.6, ease: "easeOut", delay: 0 }}
+          >
+            <h3 className={pfrDisplay.className}>SHOP</h3>
+          </motion.div>
+        </Link>
       ) : (
-        <FaShopify
-          size={30}
-          className={`${classes.fade} ${showShopify ? classes.fadeIn : ""}`}
-        />
+        <Link href={"/shop"} className="shop-link">
+          <FaShopify
+            size={30}
+            className={`${classes.fade} ${showShopify ? classes.fadeIn : ""}`}
+          />
+        </Link>
       )}
     </div>
   );

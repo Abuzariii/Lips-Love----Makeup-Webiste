@@ -1,13 +1,4 @@
-import { Playfair_Display, Roboto } from "@next/font/google";
-
-const pfrDisplay = Playfair_Display({
-  weight: "500",
-  subsets: ["latin"],
-});
-const roboto = Roboto({
-  weight: "300",
-  subsets: ["latin"],
-});
+import { roboto300, pfrDisplay } from "@/components/utils/fonts";
 
 import classes from "./bottom-banner.module.css";
 import { motion } from "framer-motion";
@@ -28,13 +19,13 @@ export default function BottomBanner() {
       </div>
       <div className={classes.lipsticks}>
         <div className={classes.tsp}>
-          <p className={roboto.className}>TEEN SPIRIT</p>
+          <p className={roboto300.className}>TEEN SPIRIT</p>
         </div>
         <div className={classes.crm}>
-          <p className={roboto.className}>CORAL MIDSUMMER</p>
+          <p className={roboto300.className}>CORAL MIDSUMMER</p>
         </div>
         <div className={classes.wrm}>
-          <p className={roboto.className}>WARM ROMANCE</p>
+          <p className={roboto300.className}>WARM ROMANCE</p>
         </div>
       </div>
     </div>

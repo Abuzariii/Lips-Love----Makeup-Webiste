@@ -1,12 +1,4 @@
-import { Poiret_One, Roboto } from "@next/font/google";
-const poiret = Poiret_One({
-  weight: "400",
-  subsets: ["latin"],
-});
-const roboto = Roboto({
-  weight: "400",
-  subsets: ["latin"],
-});
+import { poiret, roboto400 } from "@/components/utils/fonts";
 
 import classes from "./banner.module.css";
 import Rotate from "../../../../public/Rotate.svg";
@@ -27,7 +19,7 @@ export default function Banner() {
           <div className={classes.line}></div>
         </motion.div>
         <motion.p
-          className={roboto.className}
+          className={roboto400.className}
           initial={{ y: -100, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.6, ease: "easeOut", delay: 0 }}

@@ -6,13 +6,13 @@ import Footer from "@/components/landing/footer/footer";
 
 export default function Home() {
   return (
-    <main>
+    <>
       <Cover />
       <Emilia />
       <Reveal />
       <Lipsticks />
       <Footer />
-    </main>
+    </>
   );
 }
 

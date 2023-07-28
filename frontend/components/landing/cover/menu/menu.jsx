@@ -1,15 +1,4 @@
-"use client";
-import { Lato, Libre_Baskerville } from "@next/font/google";
-
-const LatoFont = Lato({
-  weight: "400",
-  subsets: ["latin"],
-});
-const LibreFont = Libre_Baskerville({
-  weight: "400",
-  subsets: ["latin"],
-});
-
+import { lato } from "@/components/utils/fonts";
 import classes from "./menu.module.css";
 import { motion } from "framer-motion";
 
@@ -32,7 +21,7 @@ export default function Menu({ isMenuOpen }) {
       transition={{ duration: 1, ease: customEase }}
     >
       <motion.h1
-        className={LatoFont.className}
+        className={lato.className}
         variants={itemVariants}
         initial="hidden"
         animate={isMenuOpen ? "visible" : "hidden"}
@@ -41,7 +30,7 @@ export default function Menu({ isMenuOpen }) {
         HOME
       </motion.h1>
       <motion.h1
-        className={LatoFont.className}
+        className={lato.className}
         variants={itemVariants}
         initial="hidden"
         animate={isMenuOpen ? "visible" : "hidden"}
@@ -50,7 +39,7 @@ export default function Menu({ isMenuOpen }) {
         ABOUT
       </motion.h1>
       <motion.h1
-        className={LatoFont.className}
+        className={lato.className}
         variants={itemVariants}
         initial="hidden"
         animate={isMenuOpen ? "visible" : "hidden"}
@@ -59,7 +48,7 @@ export default function Menu({ isMenuOpen }) {
         SHOP
       </motion.h1>
       <motion.h1
-        className={LatoFont.className}
+        className={lato.className}
         variants={itemVariants}
         initial="hidden"
         animate={isMenuOpen ? "visible" : "hidden"}
@@ -68,7 +57,7 @@ export default function Menu({ isMenuOpen }) {
         BLOG
       </motion.h1>
       <motion.h1
-        className={LatoFont.className}
+        className={lato.className}
         variants={itemVariants}
         initial="hidden"
         animate={isMenuOpen ? "visible" : "hidden"}

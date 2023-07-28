@@ -1,15 +1,4 @@
-"use client";
-
-import { Poiret_One, Roboto } from "@next/font/google";
-const roboto = Roboto({
-  weight: "300",
-  subsets: ["latin"],
-});
-const poiret = Poiret_One({
-  weight: "400",
-  subsets: ["latin"],
-});
-
+import { poiret, roboto300 } from "@/components/utils/fonts";
 import classes from "./lipsticks.module.css";
 
 export default function Lipsticks() {
@@ -22,7 +11,7 @@ export default function Lipsticks() {
           </h1>
         </div>
         <div className={classes.formulas}>
-          <p className={roboto.className}>
+          <p className={roboto300.className}>
             Our formulas are designed with ingredients to ensure the right
             balance between efficiency, safety and responsibility, producing
             formulations.
@@ -35,18 +24,18 @@ export default function Lipsticks() {
             <div>
               <div className={classes.desc}>
                 <div className={classes.deepClr}></div>
-                <p className={roboto.className}>$27</p>
+                <p className={roboto300.className}>$27</p>
               </div>
-              <p className={roboto.className}>DEEP FUCHSIA</p>
+              <p className={roboto300.className}>DEEP FUCHSIA</p>
             </div>
           </div>
           <div className={classes.golden_holiday}>
             <div>
               <div className={classes.desc}>
                 <div className={classes.gldClr}></div>
-                <p className={roboto.className}>$20</p>
+                <p className={roboto300.className}>$20</p>
               </div>
-              <p className={roboto.className}>GOLDEN HOLIDAY</p>
+              <p className={roboto300.className}>GOLDEN HOLIDAY</p>
             </div>
           </div>
 
@@ -54,27 +43,27 @@ export default function Lipsticks() {
             <div>
               <div className={classes.desc}>
                 <div className={classes.wineClr}></div>
-                <p className={roboto.className}>$30</p>
+                <p className={roboto300.className}>$30</p>
               </div>
-              <p className={roboto.className}>WINE RED</p>
+              <p className={roboto300.className}>WINE RED</p>
             </div>
           </div>
           <div className={classes.queen_rose}>
             <div>
               <div className={classes.desc}>
                 <div className={classes.queenClr}></div>
-                <p className={roboto.className}>$24</p>
+                <p className={roboto300.className}>$24</p>
               </div>
-              <p className={roboto.className}>QUEEN ROSE</p>
+              <p className={roboto300.className}>QUEEN ROSE</p>
             </div>
           </div>
           <div className={classes.candy_kiss}>
             <div>
               <div className={classes.desc}>
                 <div className={classes.kissClr}></div>
-                <p className={roboto.className}>$32</p>
+                <p className={roboto300.className}>$32</p>
               </div>
-              <p className={roboto.className}>CANDY KISS</p>
+              <p className={roboto300.className}>CANDY KISS</p>
             </div>
           </div>
         </div>
