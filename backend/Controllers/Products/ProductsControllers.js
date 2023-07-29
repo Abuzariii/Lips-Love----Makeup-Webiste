@@ -1,37 +1,4 @@
 const Makeup = require("../../MongoDB/makeup");
-const { connect } = require("../../utils/conncet.js");
-const { ObjectId } = require("mongodb");
-
-// // Get all Items
-// const getItems = async (req, res) => {
-//   try {
-//     const collection = await connect();
-//     // Fetch all documents from the collection
-//     const data = await collection.find({}).toArray();
-
-//     res.status(201).json(data);
-//   } catch (error) {
-//     res.status(500).json(error);
-//   }
-// };
-
-// // Get one item
-// const getOneItem = async (req, res) => {
-//   try {
-//     // Proceed with the database query and sending the response
-//     const id = req.query.id;
-//     try {
-//       // const collection = await connect();
-//       // const item = await collection.findOne({ _id: ObjectId(id) });
-//       const item = await Makeup.findById(id);
-//       res.status(200).json(item);
-//     } catch (error) {
-//       res.status(500).json({ error: "No such item exists" });
-//     }
-//   } catch (error) {
-//     res.status(403).json(error); // Return the error response here if token verification fails
-//   }
-// };
 
 // Get all Items
 const getItems = async (req, res) => {
