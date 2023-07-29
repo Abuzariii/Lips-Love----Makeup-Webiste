@@ -47,4 +47,4 @@ const makeupSchema = new Schema(
   },
   { timestamps: true }
 );
-module.exports = mongoose.model("Makeup", makeupSchema);
+module.exports = mongoose.model("Makeup", makeupSchema, "Makeup Data");

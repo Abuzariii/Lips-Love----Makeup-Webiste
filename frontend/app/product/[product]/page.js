@@ -1,5 +1,5 @@
 import Product from "@/components/product/product";
 
-export default function ProductPage() {
+export default function ProductsPage() {
   return <Product />;
 }

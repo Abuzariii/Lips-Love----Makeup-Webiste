@@ -5,7 +5,7 @@
         flex-wrap: wrap;
         justify-content: center;
 }
-.browse > div{
+.browse  div{
     height: 400px;
     width: 320px;
     display: flex;

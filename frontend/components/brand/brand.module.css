@@ -6,7 +6,7 @@
     justify-content: center;
 }
 
-.item >div {
+.item div {
     height: 400px;
     width: 320px;
     display: flex;

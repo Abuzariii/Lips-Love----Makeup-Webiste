@@ -2,16 +2,16 @@
 
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
-import classes from "./category.module.css";
-import { fetchByCategory } from "../utils/fetchFunctions";
+import classes from "./type.module.css";
+import { fetchByProductType } from "../utils/fetchFunctions";
 import Link from "next/link";
 
-export default function Category() {
+export default function Type() {
   const [items, setItems] = useState(null);
-  const category = convertPath();
+  const product = convertPath();
 
   useEffect(() => {
-    fetchByCategory(setItems, category);
+    fetchByProductType(setItems, product);
   }, []);
 
   return (

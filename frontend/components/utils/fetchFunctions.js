@@ -61,3 +61,12 @@ export const fetchByProductType = (setItems, product) => {
     })
     .catch((error) => console.error("Error fetching data:", error));
 };
+export const fetchOneProduct = (setItem, id) => {
+  fetch("http://localhost:4000/get-item?id=" + id)
+    .then((response) => response.json())
+    .then((jsonData) => {
+      setItem(jsonData);
+      console.log(jsonData);
+    })
+    .catch((error) => console.error(error));
+};
