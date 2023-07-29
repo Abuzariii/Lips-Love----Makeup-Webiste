@@ -2,15 +2,15 @@
 
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
-import classes from "./brand.module.css";
-import { fetchByBrand } from "../utils/fetchFunctions";
+import classes from "./category.module.css";
+import { fetchByCategory } from "../utils/fetchFunctions";
 
-export default function Brand() {
+export default function Category() {
   const [items, setItems] = useState(null);
-  const brand = convertPath();
+  const category = convertPath();
 
   useEffect(() => {
-    fetchByBrand(setItems, brand);
+    fetchByCategory(setItems, category);
   }, []);
 
   return (
@@ -37,10 +37,5 @@ export function convertPath() {
   const pathname = usePathname();
   const paths = pathname.split("/");
   let dynamic_path = paths[paths.length - 1];
-  dynamic_path = dynamic_path.split("_").join(" ");
   return dynamic_path;
 }
-
-// Top Brands
-// Nyx
-// Cinique

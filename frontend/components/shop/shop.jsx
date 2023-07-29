@@ -62,7 +62,14 @@ export default function Shop() {
         <div>
           {productTypes &&
             productTypes.map((product, index) => (
-              <h1 key={index}>{product.toUpperCase()}</h1>
+              <h1 key={index}>
+                <Link
+                  className="link"
+                  href={"/product/" + product.split(" ").join("_")}
+                >
+                  {product.toUpperCase()}
+                </Link>
+              </h1>
             ))}
         </div>
       </div>
@@ -73,7 +80,16 @@ export default function Shop() {
           {categories &&
             categories.map((category, index) => {
               if (category) {
-                return <h1 key={index}>{category.toUpperCase()}</h1>;
+                return (
+                  <h1 key={index}>
+                    <Link
+                      className="link"
+                      href={"/category/" + category.split(" ").join("_")}
+                    >
+                      {category.toUpperCase()}
+                    </Link>
+                  </h1>
+                );
               } else {
                 return null;
               }
