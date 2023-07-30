@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useRef, useState } from "react";
+import Link from "next/link";
 
 export default function Login() {
   const [message, setMessage] = useState("");
@@ -69,6 +70,22 @@ export default function Login() {
       >
         Submit
       </button>
+      <br />
+      <br />
+      <br />
+      <Link href={"/"} className="link">
+        <button
+          style={{
+            padding: "8px 15px",
+            background: "#007bff",
+            color: "#fff",
+            border: "none",
+            borderRadius: "4px",
+          }}
+        >
+          Home
+        </button>
+      </Link>
       <h1>{message}</h1>
     </form>
   );

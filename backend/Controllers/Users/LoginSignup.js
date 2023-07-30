@@ -6,7 +6,7 @@ const validator = require("validator");
 const generateToken = (payload) => {
   const secret = "abuzar"; // Replace this with your actual secret key
   const options = {
-    expiresIn: "1h", // Token will expire in 1 hour
+    expiresIn: "24h", // Token will expire in 24 hours
   };
   return jwt.sign(payload, secret, options);
 };

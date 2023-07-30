@@ -25,7 +25,9 @@ export default function Brand() {
 
         <div>
           {/* <RiShoppingCart2Fill size={40} /> */}
-          <h1 className={poiret.className}>Login/Signup</h1>
+          <Link href={"/login"} className="link">
+            <h1 className={poiret.className}>Login/Signup</h1>
+          </Link>
         </div>
       </div>
       <div className={classes.item}>

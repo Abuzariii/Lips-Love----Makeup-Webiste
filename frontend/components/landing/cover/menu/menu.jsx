@@ -1,6 +1,7 @@
 import { lato } from "@/components/utils/fonts";
 import classes from "./menu.module.css";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 export default function Menu({ isMenuOpen }) {
   const customEase = (t) => {
@@ -54,7 +55,9 @@ export default function Menu({ isMenuOpen }) {
         animate={isMenuOpen ? "visible" : "hidden"}
         transition={{ delay: 1.1, duration: 0.5 }}
       >
-        BLOG
+        <Link href={"/login"} className="link" style={{ color: "white" }}>
+          LOGIN
+        </Link>
       </motion.h1>
       <motion.h1
         className={lato.className}
