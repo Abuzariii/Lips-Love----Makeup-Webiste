@@ -17,14 +17,14 @@ const signUp = async (req, res) => {
 
   // Validate email format
   if (!validator.isEmail(email)) {
-    return res.status(400).json({ error: "Invalid email format" });
+    return res.status(400).json({ message: "Invalid email format" });
   }
 
   // Validate password length
   if (password.length < 4) {
     return res
       .status(400)
-      .json({ error: "Password must be at least 4 characters long" });
+      .json({ message: "Password must be at least 4 characters long" });
   }
 
   const user = await Users.find({ email: email });
@@ -32,7 +32,7 @@ const signUp = async (req, res) => {
   if (user.length != 0) {
     return res
       .status(500)
-      .json({ Message: "User already exists, Please login" });
+      .json({ message: "User already exists, Please login" });
   }
 
   if (user.length == 0) {
@@ -51,7 +51,7 @@ const signUp = async (req, res) => {
       });
       res
         .status(200)
-        .json({ Message: `Signed Up for ${created_user.email}`, JWT: token });
+        .json({ message: `Signed Up for ${created_user.email}`, JWT: token });
     } catch (error) {
       res.status(500).json(error);
     }
@@ -67,7 +67,7 @@ const Login = async (req, res) => {
   if (user.length == 0) {
     return res
       .status(400)
-      .json({ Message: "No such user exists, please sign up" });
+      .json({ message: "Email not registered, please sign up" });
   }
 
   if (user.length != 0) {
@@ -81,7 +81,7 @@ const Login = async (req, res) => {
       if (isPasswordMatch) {
         res.status(200).json({ JWT: token });
       } else {
-        res.status(201).json({ Message: "Password didn't match" });
+        res.status(201).json({ message: "Incorrect password" });
       }
     } catch (error) {
       res.status(500).json(error);

@@ -1,14 +1,14 @@
 "use client";
 
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 
 export default function Login() {
+  const [message, setMessage] = useState("");
   const emailRef = useRef("");
   const passwordRef = useRef("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     try {
       const response = await fetch("http://localhost:4000/login", {
         method: "POST",
@@ -22,9 +22,13 @@ export default function Login() {
       });
 
       const data = await response.json();
-      console.log(data);
       // Storing data in localStorage
-      localStorage.setItem("jwt-token", data);
+      if (data.JWT) {
+        localStorage.setItem("jwt-token", data.JWT);
+        setMessage("JWT Token received and stored in local storage");
+      } else if (data.message) {
+        setMessage(data.message);
+      }
     } catch (error) {
       console.error("Error:", error);
     }
@@ -65,6 +69,7 @@ export default function Login() {
       >
         Submit
       </button>
+      <h1>{message}</h1>
     </form>
   );
 }

@@ -1,3 +1,5 @@
-export default function SignUp() {
-  return <h1>SignUp</h1>;
+import Signup from "@/components/signup/signup";
+
+export default function SignUpPage() {
+  return <Signup />;
 }
