@@ -3,16 +3,16 @@ export const fetchItems = (setData) => {
     .then((response) => response.json())
     .then((jsonData) => {
       setData(jsonData);
-      console.log(jsonData);
+      console.log(jsonData.length);
     })
-    .catch((error) => console.error("Error fetching data:", error));
+    .catch((error) => console.error(error));
 };
 export const fetchBrands = (setBrands) => {
   fetch("http://localhost:4000/brands")
     .then((response) => response.json())
     .then((jsonData) => {
       setBrands(jsonData);
-      console.log(jsonData);
+      // console.log(jsonData);
     })
     .catch((error) => console.error("Error fetching data:", error));
 };
@@ -21,7 +21,7 @@ export const fetchByBrand = (setItems, brand) => {
     .then((response) => response.json())
     .then((jsonData) => {
       setItems(jsonData);
-      console.log(jsonData);
+      // console.log(jsonData);
     })
     .catch((error) => console.error("Error fetching data:", error));
 };
@@ -30,7 +30,7 @@ export const fetchCategories = (setCategories) => {
     .then((response) => response.json())
     .then((jsonData) => {
       setCategories(jsonData);
-      console.log(jsonData);
+      // console.log(jsonData);
     })
     .catch((error) => console.error("Error fetching data:", error));
 };
@@ -39,7 +39,7 @@ export const fetchByCategory = (setItems, category) => {
     .then((response) => response.json())
     .then((jsonData) => {
       setItems(jsonData);
-      console.log(jsonData);
+      // console.log(jsonData);
     })
     .catch((error) => console.error("Error fetching data:", error));
 };
@@ -48,7 +48,7 @@ export const fetchProductTypes = (setProductTypes) => {
     .then((response) => response.json())
     .then((jsonData) => {
       setProductTypes(jsonData);
-      console.log(jsonData);
+      // console.log(jsonData);
     })
     .catch((error) => console.error("Error fetching data:", error));
 };
@@ -57,7 +57,7 @@ export const fetchByProductType = (setItems, product) => {
     .then((response) => response.json())
     .then((jsonData) => {
       setItems(jsonData);
-      console.log(jsonData);
+      // console.log(jsonData);
     })
     .catch((error) => console.error("Error fetching data:", error));
 };
@@ -66,7 +66,7 @@ export const fetchOneProduct = (setItem, id) => {
     .then((response) => response.json())
     .then((jsonData) => {
       setItem(jsonData);
-      console.log(jsonData);
+      // console.log(jsonData);
     })
     .catch((error) => console.error(error));
 };

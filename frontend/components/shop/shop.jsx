@@ -44,21 +44,16 @@ export default function Shop() {
         <h1>Check out our Brands</h1>
         <div>
           {brands &&
-            brands.map((brand, index) => {
-              if (brand !== null) {
-                return (
-                  <h1 key={index}>
-                    <Link
-                      className="link"
-                      href={"/brands/" + brand.split(" ").join("_")}
-                    >
-                      {brand.toUpperCase()}
-                    </Link>
-                  </h1>
-                );
-              }
-              return null; // Skip rendering if the brand is null
-            })}
+            brands.map((brand, index) => (
+              <h1 key={index}>
+                <Link
+                  className="link"
+                  href={"/brands/" + brand.split(" ").join("_")}
+                >
+                  {brand.toUpperCase()}
+                </Link>
+              </h1>
+            ))}
         </div>
       </div>
       {/* Product Types */}

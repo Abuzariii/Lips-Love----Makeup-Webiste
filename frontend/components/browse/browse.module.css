@@ -1,9 +1,21 @@
+.container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.container > *{
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
 .browse{
     min-height: 100vh;
     min-width: 100%;
     display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 .browse  div{
     height: 400px;
@@ -19,4 +31,7 @@
 .browse img{
     max-height: 100px;
     width: auto;
+}
+.button{
+    padding: 10px;
 }

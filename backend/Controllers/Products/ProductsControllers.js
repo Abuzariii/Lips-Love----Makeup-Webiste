@@ -3,7 +3,11 @@ const Makeup = require("../../MongoDB/makeup");
 // Get all Items
 const getItems = async (req, res) => {
   try {
-    const items = await Makeup.find();
+    const allItems = await Makeup.find({ price: { $ne: 0 } });
+    // Filter items where price is not equal to "0" or "0.0"
+    const items = allItems.filter(
+      (item) => item.price !== "0" && item.price !== "0.0"
+    );
     res.status(200).json(items);
   } catch (error) {
     res.status(500).json(error);
@@ -30,7 +34,10 @@ const getOneItem = async (req, res) => {
 const getAllBrands = async (req, res) => {
   try {
     const brands = await Makeup.distinct("brand");
-    res.status(200).json(brands);
+    // Filter out null values from the brands array
+    const filteredBrands = brands.filter((brand) => brand !== null);
+
+    res.status(200).json(filteredBrands);
   } catch (error) {
     res.status(500).json({ error: "Error getting brands" });
   }
@@ -40,7 +47,11 @@ const getAllBrands = async (req, res) => {
 const getItemsByBrand = async (req, res) => {
   const brand = req.query.brand;
   try {
-    const items = await Makeup.find({ brand: brand });
+    const allItems = await Makeup.find({ brand: brand });
+    // Filter items where price is not equal to "0" or "0.0"
+    const items = allItems.filter(
+      (item) => item.price !== "0" && item.price !== "0.0"
+    );
     res.status(200).json(items);
   } catch (error) {
     res.status(500).json({ error: "Error getting items by brand" });
@@ -61,7 +72,11 @@ const getAllCategories = async (req, res) => {
 const getItemsByCategory = async (req, res) => {
   const category = req.query.category;
   try {
-    const items = await Makeup.find({ category: category });
+    const allItems = await Makeup.find({ category: category });
+    // Filter items where price is not equal to "0" or "0.0"
+    const items = allItems.filter(
+      (item) => item.price !== "0" && item.price !== "0.0"
+    );
     res.status(200).json(items);
   } catch (error) {
     res.status(500).json({ error: "Error getting items by category" });
@@ -82,7 +97,11 @@ const getAllProductTypes = async (req, res) => {
 const getItemsByProductType = async (req, res) => {
   const product_type = req.query.product_type;
   try {
-    const items = await Makeup.find({ product_type: product_type });
+    const allItems = await Makeup.find({ product_type: product_type });
+    // Filter items where price is not equal to "0" or "0.0"
+    const items = allItems.filter(
+      (item) => item.price !== "0" && item.price !== "0.0"
+    );
     res.status(200).json(items);
   } catch (error) {
     res.status(500).json({ error: "Error getting items by product type" });
