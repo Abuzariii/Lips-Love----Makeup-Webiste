@@ -4,7 +4,7 @@ const jwt = require("jsonwebtoken");
 const validator = require("validator");
 
 const generateToken = (payload) => {
-  const secret = "abuzar"; // Replace this with your actual secret key
+  const secret = "abuzar";
   const options = {
     expiresIn: "24h", // Token will expire in 24 hours
   };
@@ -41,7 +41,7 @@ const signUp = async (req, res) => {
     const hashedPassword = await bcrypt.hash(password, salt);
 
     // Generate the token
-    const token = generateToken({ username });
+    const token = generateToken({ email, username });
 
     try {
       const created_user = await Users.create({
@@ -75,7 +75,10 @@ const Login = async (req, res) => {
     const isPasswordMatch = await bcrypt.compare(password, hashedPassword);
 
     // Generate the token
-    const token = generateToken({ username: `${user[0].username}` });
+    const token = generateToken({
+      email: `${user[0].email}`,
+      username: `${user[0].username}`,
+    });
 
     try {
       if (isPasswordMatch) {

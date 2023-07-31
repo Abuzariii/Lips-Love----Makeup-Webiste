@@ -57,9 +57,6 @@ export default function Navbar({ onMenuClick }) {
           toggled={isOpen}
           toggle={setOpen}
           easing="ease-out"
-          onToggle={() => {
-            console.log("Was toggled");
-          }}
           size={hamburgerSize}
           distance="lg"
           color={isOpen ? "white" : "black"}

@@ -1,6 +1,7 @@
 "use client";
 
 import { DataContext } from "@/Context/dataContext";
+import jwt from "jsonwebtoken";
 import { useContext, useEffect, useState } from "react";
 import Banner from "./banner/banner";
 import BottomBanner from "./bottom-banner/bottom-banner";
@@ -23,15 +24,19 @@ export default function Cover() {
     setMenuOpen(!isMenuOpen);
   };
 
-  const { setIsLoggedIn } = useContext(DataContext);
+  const { isLoggedIn, setIsLoggedIn } = useContext(DataContext);
+
   useEffect(() => {
-    // Check for the JWT token in local storage when the component mounts.
     const token = getToken();
-    setIsLoggedIn(!!token);
+    const decoded = jwt.decode(token);
+    console.log(decoded);
+    if (decoded !== null) {
+      setIsLoggedIn(true);
+    }
   }, []);
+  console.log(isLoggedIn);
   return (
     <div className={classes.cover}>
-      {/* <h1>{isLoggedIn ? "Logged In" : "Not Logged In"}</h1> */}
       <Navbar isMenuOpen={isMenuOpen} onMenuClick={handleMenuClick} />
       <Menu isMenuOpen={isMenuOpen} />
       <Banner />

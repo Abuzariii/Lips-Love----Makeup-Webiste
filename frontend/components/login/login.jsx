@@ -1,12 +1,31 @@
 "use client";
 
-import React, { useRef, useState } from "react";
+import jwt from "jsonwebtoken";
 import Link from "next/link";
+import { useEffect, useRef, useState, useContext } from "react";
+import { DataContext } from "@/Context/dataContext";
 
 export default function Login() {
   const [message, setMessage] = useState("");
   const emailRef = useRef("");
   const passwordRef = useRef("");
+  const [decodedToken, setDecodedToken] = useState(null);
+  const { isLoggedIn, setIsLoggedIn } = useContext(DataContext);
+
+  function decodeJWT() {
+    const token = localStorage.getItem("jwt-token");
+    try {
+      const decoded = jwt.decode(token);
+      setDecodedToken(decoded);
+      if (decoded !== null) {
+        setIsLoggedIn(true);
+      }
+      return decoded;
+    } catch (error) {
+      console.error("Error decoding JWT:", error);
+      return null;
+    }
+  }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -21,12 +40,11 @@ export default function Login() {
           password: passwordRef.current.value,
         }),
       });
-
       const data = await response.json();
-      // Storing data in localStorage
       if (data.JWT) {
         localStorage.setItem("jwt-token", data.JWT);
         setMessage("JWT Token received and stored in local storage");
+        decodeJWT();
       } else if (data.message) {
         setMessage(data.message);
       }
@@ -34,6 +52,11 @@ export default function Login() {
       console.error("Error:", error);
     }
   };
+
+  useEffect(() => {
+    decodeJWT();
+  }, []);
+  console.log(isLoggedIn);
 
   return (
     <form
@@ -43,7 +66,7 @@ export default function Login() {
       <div style={{ marginBottom: "10px" }}>
         <label>Email:</label>
         <input
-          //   type="email"
+          type="email"
           ref={emailRef}
           style={{ width: "100%", padding: "5px" }}
           required
@@ -52,7 +75,7 @@ export default function Login() {
       <div style={{ marginBottom: "10px" }}>
         <label>Password:</label>
         <input
-          //   type="password"
+          type="password"
           ref={passwordRef}
           style={{ width: "100%", padding: "5px" }}
           required
@@ -87,6 +110,13 @@ export default function Login() {
         </button>
       </Link>
       <h1>{message}</h1>
+      <h1>{decodedToken ? "Logged In " : "Not logged In"}</h1>
+      {decodedToken && (
+        <div>
+          <p>Username: {decodedToken.username}</p>
+          <p>Email: {decodedToken.email}</p>
+        </div>
+      )}
     </form>
   );
 }
