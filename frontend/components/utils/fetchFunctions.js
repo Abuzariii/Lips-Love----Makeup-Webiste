@@ -82,16 +82,11 @@ export const sendRequestWithToken = async () => {
           Authorization: token,
         },
       });
-      if (response.ok) {
-        const data = await response.json();
-        return data;
-      } else {
-        console.log("Error:", response.statusText);
-        return response.statusText;
-      }
+      const data = await response.json();
+      return data;
     } catch (error) {
-      console.log("Error:", error.message);
-      return error.message;
+      console.log(error);
+      return error;
     }
   } else {
     console.log("Token not available in local storage");
