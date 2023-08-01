@@ -50,6 +50,12 @@
     font-weight: 600;
 }
 
+.container  section:hover{
+    cursor: pointer;
+}
+.container section *:hover{
+    cursor: pointer;
+}
 /*
     Media Queries 
 */

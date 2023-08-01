@@ -9,6 +9,7 @@ const DataProvider = ({ children }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [loggedInEmail, setLoggedInEmail] = useState("");
   const [loggedInUsername, setLoggedInUsername] = useState("");
+  const [orders, setOrders] = useState({ email: "", orders: [] });
   return (
     <DataContext.Provider
       value={{
@@ -20,6 +21,8 @@ const DataProvider = ({ children }) => {
         setLoggedInEmail,
         loggedInUsername,
         setLoggedInUsername,
+        orders,
+        setOrders,
       }}
     >
       {children}

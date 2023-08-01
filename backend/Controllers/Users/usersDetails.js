@@ -1,5 +1,33 @@
 const UsersDetails = require("../../MongoDB/usersDetails");
+const jwt = require("jsonwebtoken");
 
+// Get user details
+const getUserDetails = async (req, res) => {
+  const token = req.header("Authorization");
+
+  if (!token) {
+    return res
+      .status(401)
+      .json({ message: "Unauthorized: Token not provided" });
+  }
+
+  try {
+    const secret = "abuzar";
+    const decodedToken = jwt.verify(token, secret);
+    const email = decodedToken.email;
+
+    const userDetails = await UsersDetails.findOne({ email });
+    if (!userDetails) {
+      return res.status(401).json({ message: "Unauthorized: Invalid token" });
+    }
+
+    res.status(201).json(userDetails);
+  } catch (error) {
+    return res.status(500).json(error);
+  }
+};
+
+// Upload user details
 const uploadUserDetails = async (req, res) => {
   const { email, fullName, contactNo, address } = req.body;
 
@@ -28,14 +56,12 @@ const uploadUserDetails = async (req, res) => {
   }
 };
 
+// Update user details
 const updateUserDetails = async (req, res) => {
   const { email, fullName, contactNo, address } = req.body;
 
   try {
-    // Find the user details with the provided email
     const userDetails = await UsersDetails.findOne({ email });
-
-    // If no user details found, return an error
     if (!userDetails) {
       return res
         .status(404)
@@ -58,4 +84,4 @@ const updateUserDetails = async (req, res) => {
   }
 };
 
-module.exports = { uploadUserDetails, updateUserDetails };
+module.exports = { getUserDetails, uploadUserDetails, updateUserDetails };

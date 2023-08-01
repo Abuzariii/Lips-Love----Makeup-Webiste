@@ -70,3 +70,31 @@ export const fetchOneProduct = (setItem, id) => {
     })
     .catch((error) => console.error(error));
 };
+
+export const sendRequestWithToken = async () => {
+  const token = localStorage.getItem("jwt-token");
+  if (token) {
+    try {
+      const response = await fetch("http://localhost:4000/user-details/get", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: token,
+        },
+      });
+      if (response.ok) {
+        const data = await response.json();
+        return data;
+      } else {
+        console.log("Error:", response.statusText);
+        return response.statusText;
+      }
+    } catch (error) {
+      console.log("Error:", error.message);
+      return error.message;
+    }
+  } else {
+    console.log("Token not available in local storage");
+    return "Failed";
+  }
+};

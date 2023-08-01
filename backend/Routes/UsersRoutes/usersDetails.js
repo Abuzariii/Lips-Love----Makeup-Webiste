@@ -1,5 +1,6 @@
 const express = require("express");
 const {
+  getUserDetails,
   uploadUserDetails,
   updateUserDetails,
 } = require("../../Controllers/Users/usersDetails");
@@ -7,7 +8,9 @@ const {
 // Initializations
 const router = express.Router();
 
-router.post("/user-details", uploadUserDetails);
+router.post("/user-details/get", getUserDetails);
+
+router.post("/user-details/upload", uploadUserDetails);
 
 router.put("/user-details/update", updateUserDetails);
 
