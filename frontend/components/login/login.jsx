@@ -1,31 +1,17 @@
 "use client";
 
-import jwt from "jsonwebtoken";
-import Link from "next/link";
-import { useEffect, useRef, useState, useContext } from "react";
 import { DataContext } from "@/Context/dataContext";
+import Link from "next/link";
+import { useContext, useEffect, useRef, useState } from "react";
+import { decodeJWT } from "../utils/loginCheckFunctions";
 
 export default function Login() {
   const [message, setMessage] = useState("");
   const emailRef = useRef("");
   const passwordRef = useRef("");
   const [decodedToken, setDecodedToken] = useState(null);
-  const { isLoggedIn, setIsLoggedIn } = useContext(DataContext);
-
-  function decodeJWT() {
-    const token = localStorage.getItem("jwt-token");
-    try {
-      const decoded = jwt.decode(token);
-      setDecodedToken(decoded);
-      if (decoded !== null) {
-        setIsLoggedIn(true);
-      }
-      return decoded;
-    } catch (error) {
-      console.error("Error decoding JWT:", error);
-      return null;
-    }
-  }
+  const { setIsLoggedIn, setLoggedInEmail, setLoggedInUsername } =
+    useContext(DataContext);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -44,7 +30,12 @@ export default function Login() {
       if (data.JWT) {
         localStorage.setItem("jwt-token", data.JWT);
         setMessage("JWT Token received and stored in local storage");
-        decodeJWT();
+        decodeJWT(
+          setDecodedToken,
+          setIsLoggedIn,
+          setLoggedInEmail,
+          setLoggedInUsername
+        );
       } else if (data.message) {
         setMessage(data.message);
       }
@@ -54,9 +45,13 @@ export default function Login() {
   };
 
   useEffect(() => {
-    decodeJWT();
+    decodeJWT(
+      setDecodedToken,
+      setIsLoggedIn,
+      setLoggedInEmail,
+      setLoggedInUsername
+    );
   }, []);
-  console.log(isLoggedIn);
 
   return (
     <form

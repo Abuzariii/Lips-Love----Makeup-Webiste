@@ -1,19 +1,31 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import classes from "./category.module.css";
 import { fetchByCategory } from "../utils/fetchFunctions";
 import Link from "next/link";
 import { poiret } from "../utils/fonts";
+import jwt from "jsonwebtoken";
 import { RiShoppingCart2Fill } from "react-icons/ri";
+import { DataContext } from "@/Context/dataContext";
+import { getToken } from "../utils/loginCheckFunctions";
 
 export default function Category() {
+  const { isLoggedIn, setIsLoggedIn, setLoggedInEmail, setLoggedInUsername } =
+    useContext(DataContext);
   const [items, setItems] = useState(null);
   const category = convertPath();
 
   useEffect(() => {
     fetchByCategory(setItems, category);
+    const token = getToken();
+    const decoded = jwt.decode(token);
+    if (decoded !== null) {
+      setIsLoggedIn(true);
+      setLoggedInEmail(decoded.email);
+      setLoggedInUsername(decoded.username);
+    }
   }, []);
 
   return (
@@ -24,8 +36,13 @@ export default function Category() {
         </Link>
 
         <div>
-          <RiShoppingCart2Fill size={40} />
-          <h4 className={poiret.className}>0</h4>
+          {isLoggedIn ? (
+            <RiShoppingCart2Fill size={40} />
+          ) : (
+            <Link href={"/login"} className="link">
+              <h1 className={poiret.className}>Login/Signup</h1>
+            </Link>
+          )}
         </div>
       </div>
       <div className={classes.item}>
