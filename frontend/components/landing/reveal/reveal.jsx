@@ -3,6 +3,7 @@
 import { cinzel, roboto300 } from "@/components/utils/fonts";
 import classes from "./reveal.module.css";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 export default function Reveal() {
   return (
@@ -21,7 +22,11 @@ export default function Reveal() {
           Emily, we want to make you feel confident and comfortable in your own
           skin.
         </p>
-        <button className={roboto300.className}>ABOUT US</button>
+        <button className={roboto300.className}>
+          <Link href={"/about"} className="link">
+            ABOUT US
+          </Link>
+        </button>
       </div>
     </div>
   );

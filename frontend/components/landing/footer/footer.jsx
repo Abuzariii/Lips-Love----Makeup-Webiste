@@ -1,6 +1,7 @@
 import { poiret, fjallaOne, roboto300 } from "@/components/utils/fonts";
 import classes from "./footer.module.css";
 import { BiLogoLinkedin, BiLogoTwitter, BiLogoFacebook } from "react-icons/bi";
+import Link from "next/link";
 
 export default function Footer() {
   return (
@@ -20,11 +21,31 @@ export default function Footer() {
         <div className={classes.links}>
           <div className={classes.pages}>
             <h3 className={roboto300.className}>Pages</h3>
-            <p className={roboto300.className}>Home</p>
-            <p className={roboto300.className}>About</p>
-            <p className={roboto300.className}>Shop</p>
-            <p className={roboto300.className}>Blog</p>
-            <p className={roboto300.className}>Contact</p>
+            <p className={roboto300.className}>
+              <Link className="link" href={"/"}>
+                Home
+              </Link>
+            </p>
+            <p className={roboto300.className}>
+              <Link className="link" href={"/about"}>
+                About
+              </Link>
+            </p>
+            <p className={roboto300.className}>
+              <Link className="link" href={"/shop"}>
+                Shop
+              </Link>
+            </p>
+            <p className={roboto300.className}>
+              <Link className="link" href={"/blog"}>
+                Blog
+              </Link>
+            </p>
+            <p className={roboto300.className}>
+              <Link className="link" href={"/contact"}>
+                Contact
+              </Link>
+            </p>
           </div>
           <div className={classes.contacts}>
             <h3 className={roboto300.className}>Contacts</h3>
@@ -41,13 +62,15 @@ export default function Footer() {
       <div className={classes.lowerDiv}>
         <div>
           <p className={roboto300.className}>Powered by</p>
-          <a href={"www.emilia.com"} className={fjallaOne.className}>
-            Emilia Brewster
-          </a>
+          <a className={fjallaOne.className}>Emilia Brewster</a>
         </div>
         <div>
           <p className={roboto300.className}>Made by</p>
-          <a href={"www.abuzar.com"} className={fjallaOne.className}>
+          <a
+            href={"https://github.com/Abuzariii"}
+            className={fjallaOne.className}
+            target="_blank"
+          >
             Abuzar
           </a>
         </div>

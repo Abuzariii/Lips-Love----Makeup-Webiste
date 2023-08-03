@@ -36,7 +36,7 @@
     letter-spacing: 0.5px;
     word-spacing: 1px;
 }
-.about > button{
+.about button{
     background: transparent;
     font-size: 0.7rem;
     border-radius: 3rem;
@@ -47,7 +47,10 @@
     
     transition: transform 0.3s ease;
 }
-.about > button:hover{
+.about button *{
+    color: rgb(169, 7, 35);
+}
+.about button:hover{
     cursor: pointer;
     transform: scale(1.1);
 }

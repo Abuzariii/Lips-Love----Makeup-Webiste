@@ -28,7 +28,9 @@ export default function Menu({ isMenuOpen }) {
         animate={isMenuOpen ? "visible" : "hidden"}
         transition={{ delay: 0.5, duration: 0.5 }}
       >
-        HOME
+        <Link href={"/"} className="link">
+          HOME
+        </Link>
       </motion.h1>
       <motion.h1
         className={lato.className}
@@ -37,7 +39,9 @@ export default function Menu({ isMenuOpen }) {
         animate={isMenuOpen ? "visible" : "hidden"}
         transition={{ delay: 0.7, duration: 0.5 }}
       >
-        ABOUT
+        <Link href={"/about"} className="link">
+          ABOUT
+        </Link>
       </motion.h1>
       <motion.h1
         className={lato.className}
@@ -46,7 +50,9 @@ export default function Menu({ isMenuOpen }) {
         animate={isMenuOpen ? "visible" : "hidden"}
         transition={{ delay: 0.9, duration: 0.5 }}
       >
-        SHOP
+        <Link href={"/shop"} className="link">
+          SHOP
+        </Link>
       </motion.h1>
       <motion.h1
         className={lato.className}
@@ -55,7 +61,7 @@ export default function Menu({ isMenuOpen }) {
         animate={isMenuOpen ? "visible" : "hidden"}
         transition={{ delay: 1.1, duration: 0.5 }}
       >
-        <Link href={"/login"} className="link" style={{ color: "white" }}>
+        <Link href={"/login"} className="link">
           LOGIN
         </Link>
       </motion.h1>
@@ -66,7 +72,9 @@ export default function Menu({ isMenuOpen }) {
         animate={isMenuOpen ? "visible" : "hidden"}
         transition={{ delay: 1.3, duration: 0.5 }}
       >
-        CONTACT
+        <Link href={"/contact"} className="link">
+          CONTACT
+        </Link>
       </motion.h1>
     </motion.div>
   );

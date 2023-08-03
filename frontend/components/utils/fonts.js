@@ -5,8 +5,18 @@ import {
   Playfair_Display,
   Lato,
   Fjalla_One,
+  Cinzel_Decorative,
+  Italiana,
 } from "@next/font/google";
 
+export const italiana = Italiana({
+  weight: "400",
+  subsets: ["latin"],
+});
+export const cinzel_dec = Cinzel_Decorative({
+  weight: "400",
+  subsets: ["latin"],
+});
 export const fjallaOne = Fjalla_One({
   weight: "400",
   subsets: ["latin"],

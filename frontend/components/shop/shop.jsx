@@ -9,7 +9,7 @@ import {
   fetchCategories,
   fetchProductTypes,
 } from "../utils/fetchFunctions";
-import { cinzel, poiret, roboto300 } from "../utils/fonts";
+import { italiana, poiret, roboto300 } from "../utils/fonts";
 import classes from "./shop.module.css";
 
 export default function Shop() {
@@ -36,7 +36,7 @@ export default function Shop() {
         </div>
       </div>
       <div className={classes.shopOurProducts}>
-        <h1 className={cinzel.className}>SHOP</h1>
+        <h1 className={italiana.className}>SHOP</h1>
         <p className={roboto300.className}>Our Products</p>
       </div>
       {/* Brands */}
