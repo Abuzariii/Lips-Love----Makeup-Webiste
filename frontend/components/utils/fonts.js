@@ -7,8 +7,15 @@ import {
   Fjalla_One,
   Cinzel_Decorative,
   Italiana,
+  Caveat,
 } from "@next/font/google";
 
+// Caveat,
+
+export const caveat = Caveat({
+  weight: "700",
+  subsets: ["latin"],
+});
 export const italiana = Italiana({
   weight: "400",
   subsets: ["latin"],

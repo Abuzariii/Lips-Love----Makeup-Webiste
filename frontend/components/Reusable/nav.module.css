@@ -1,0 +1,43 @@
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    transition: background-color 1s ease;
+    width: 100%;
+    top: 0;
+}
+
+.nav>* {
+    margin: 30px;
+}
+.nav *{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    color: rgb(235, 14, 14);
+}
+
+.nav h1,
+.nav h4 {
+    font-weight: 600;
+}
+.cartOrLogin h1 {
+    border: 1px solid rgb(235, 14, 14, 0.4);
+    padding: 2px 6px 4px 6px;
+    border-radius: 0.8rem;
+    font-size: 1.8rem;
+    transition: transform 0.1s ease;
+    font-weight: 500;
+}
+
+.cartOrLogin h1:hover {
+    transform: scale(1.05);
+}
+
+@media(max-width:900px) {
+    .nav>* {
+        margin: 20px;
+    }
+}

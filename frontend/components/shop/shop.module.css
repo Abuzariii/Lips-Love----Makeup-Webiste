@@ -1,26 +1,13 @@
 .shop{
-    /* background-color: rgb(246, 242, 238); */
     background-color: rgb(255, 254, 237);
     width: 100%;
     display: flex;
     flex-direction: column;
-}
-.shop > div{
-    width: 100%;
-}
-.nav{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-.nav > *{
-    margin: 30px;
-    display: flex;
     justify-content: center;
     align-items: center;
 }
-.nav h1, .nav h4{
-    font-weight: 600;
+.shop > div{
+    width: 100%;
 }
 .shopOurProducts{
     height: 60vh;
@@ -36,21 +23,58 @@
 .shopOurProducts p{
     font-size: 1.3rem;
 }
-.brands > div{
+.Row{
+    margin: 20px 0;
+    min-height: 14rem;
+}
+.Row >div::-webkit-scrollbar{
+    display: none;
+}
+.Row > div{
     display: flex;
     flex-direction: row;
     overflow-x: scroll;
 }
-.brands h1{
+.Row  h1{
     white-space: nowrap;
-    margin: 20px;
+    margin: 30px;
+    font-weight: 600;
+    transition: transform 0.3s ease;
 }
-
+.Row > div h1:hover {
+    transform: scale(1.1);
+}
+.Row h1 *{
+    color: rgb(169, 7, 35);
+}
+.shop button{
+    margin: 50px 0;
+    background: transparent;
+    font-size: 1.3rem;
+    border-radius: 3rem;
+    padding: 20px 33px;
+    letter-spacing: 1px;
+    border: 1px solid black;
+    
+    transition: transform 0.3s ease;
+}
+.shop button:hover{
+    border: 1px solid rgb(169, 7, 35);
+    color: rgb(169, 7, 35);
+    cursor: pointer;
+    transform: scale(1.1);
+}
 /*
     Media Queries 
 */
 @media(max-width:900px){
-    .nav > *{
+    .shopOurProducts > h1{
+        font-size: 9rem;
+    }
+    .Row{
+        min-height: 12rem;
+    }
+    .Row h1{
         margin: 20px;
     }
 }

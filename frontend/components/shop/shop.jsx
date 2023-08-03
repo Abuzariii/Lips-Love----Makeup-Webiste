@@ -1,16 +1,16 @@
 "use client";
 
-import Link from "next/link";
-import { useEffect, useState } from "react";
-import { RiShoppingCart2Fill } from "react-icons/ri";
-import Footer from "../landing/footer/footer";
 import {
   fetchBrands,
   fetchCategories,
   fetchProductTypes,
 } from "../utils/fetchFunctions";
-import { italiana, poiret, roboto300 } from "../utils/fonts";
+import Link from "next/link";
+import { useEffect, useState } from "react";
+import Footer from "../landing/footer/footer";
+import { italiana, roboto300, caveat } from "../utils/fonts";
 import classes from "./shop.module.css";
+import Nav from "../Reusable/nav";
 
 export default function Shop() {
   const [brands, setBrands] = useState(null);
@@ -25,27 +25,22 @@ export default function Shop() {
 
   return (
     <div className={classes.shop}>
-      <div className={classes.nav}>
-        <Link href={"/"} className="link">
-          <h1 className={poiret.className}>LIPS LOVE</h1>
-        </Link>
-
-        <div>
-          <RiShoppingCart2Fill size={40} />
-          <h4 className={poiret.className}>0</h4>
-        </div>
-      </div>
+      <Nav />
       <div className={classes.shopOurProducts}>
         <h1 className={italiana.className}>SHOP</h1>
         <p className={roboto300.className}>Our Products</p>
       </div>
       {/* Brands */}
-      <div className={classes.brands}>
-        <h1>Check out our Brands</h1>
+      <div className={classes.Row}>
+        <h1 className={italiana.className}>Check out our Brands</h1>
         <div>
           {brands &&
             brands.map((brand, index) => (
-              <h1 key={index}>
+              <h1
+                key={index}
+                className={caveat.className}
+                style={{ fontSize: "3rem" }}
+              >
                 <Link
                   className="link"
                   href={"/brands/" + brand.split(" ").join("_")}
@@ -57,12 +52,16 @@ export default function Shop() {
         </div>
       </div>
       {/* Product Types */}
-      <div className={classes.brands}>
-        <h1>Check All our Products</h1>
+      <div className={classes.Row}>
+        <h1 className={italiana.className}>Our Products</h1>
         <div>
           {productTypes &&
             productTypes.map((product, index) => (
-              <h1 key={index}>
+              <h1
+                key={index}
+                className={caveat.className}
+                style={{ fontSize: "3rem" }}
+              >
                 <Link
                   className="link"
                   href={"/type/" + product.split(" ").join("_")}
@@ -74,14 +73,18 @@ export default function Shop() {
         </div>
       </div>
       {/* Categories */}
-      <div className={classes.brands}>
-        <h1>Shop by Categories</h1>
+      <div className={classes.Row}>
+        <h1 className={italiana.className}>Shop by Categories</h1>
         <div>
           {categories &&
             categories.map((category, index) => {
               if (category) {
                 return (
-                  <h1 key={index}>
+                  <h1
+                    key={index}
+                    className={caveat.className}
+                    style={{ fontSize: "3rem" }}
+                  >
                     <Link
                       className="link"
                       href={"/category/" + category.split(" ").join("_")}
@@ -97,7 +100,7 @@ export default function Shop() {
         </div>
       </div>
       <Link href={"/browse"} className="link">
-        <button>Browse all Products</button>
+        <button className={roboto300.className}>Browse all Products</button>
       </Link>
       <Footer />
     </div>
