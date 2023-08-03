@@ -90,8 +90,11 @@
         margin-top: 10%;
         height: 35%;
     }
+    .lips{
+        background-size: 110%;
+    }
 }
-@media(max-width:1050px){
+@media(max-width:1070px){
     .banner{
         margin-top: 15%;
         height: 35%;
@@ -100,8 +103,56 @@
     .lipslove > div >  h1{
         font-size: 9rem;
     }
+    .rotate {
+        position: relative;
+        top: -13%;
+        left: 80%;
+        animation: rotating 10s linear infinite;
+    }
+}
+@media(max-width:1000px){
+    .lips{
+        background-size: 115%;
+    }
 }
 @media(max-width:900px){
+    .line{
+        display: none;
+    }
+    .banner{
+        flex-direction: column;
+        height: 50%;
+        margin-top: 0;
+    }
+    .banner > div{
+        width: 70%;
+    }
+    .lipslove{
+        justify-content: space-evenly;
+        align-items: flex-start;
+    }
+    .lipslove > *{
+        margin: 0;
+    }
+    .lipslove > div{
+        flex-direction: row;
+        width: 100%;
+    }
+    .lipslove > div > h1{
+        font-size: 5rem;
+        margin-right: 30px;
+    }
+    .lips{
+        background-size: 100%;
+    }
+    .rotate {
+        height: 80px;
+        top: 83%;
+        left: 85%;
+        max-width: 80px;
+    }
+}
+@media(max-width:700px){
     .line{
         display: none;
     }
@@ -111,7 +162,7 @@
         margin-top: 0;
     }
     .banner > div{
-        width: 100%;
+        width: 85%;
     }
     .lipslove{
         height: 45%;
@@ -134,5 +185,17 @@
         top: 83%;
         left: 65%;
         max-width: 80px;
+    }
+}
+
+@media(max-width:600px) {
+    .banner>div {
+        width: 90%;
+    }
+}
+
+@media(max-width:550px) {
+    .banner>div {
+        width: 100%;
     }
 }
