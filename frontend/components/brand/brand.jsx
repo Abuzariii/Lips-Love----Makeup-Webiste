@@ -7,10 +7,13 @@ import { fetchByBrand } from "../utils/fetchFunctions";
 import Link from "next/link";
 import { BiCartAdd } from "react-icons/bi";
 import { DataContext } from "@/Context/dataContext";
+import { roboto400, cinzel } from "../utils/fonts";
 import Nav from "../Reusable/nav";
+import Title from "../Reusable/title";
 
 export default function Brand() {
-  const { loggedInEmail, orders, setOrders } = useContext(DataContext);
+  const { isLoggedIn, loggedInEmail, orders, setOrders } =
+    useContext(DataContext);
   const [items, setItems] = useState(null);
   const brand = convertPath();
 
@@ -20,11 +23,13 @@ export default function Brand() {
 
   useEffect(() => {
     console.log(orders);
+    console.log(brand);
   }, [orders]);
 
   return (
     <div className={classes.container}>
       <Nav />
+      <Title brand={brand} />
       <div className={classes.item}>
         {items &&
           items.map((item) => (
@@ -37,35 +42,52 @@ export default function Brand() {
                 }}
               />
               <Link href={"/product/" + item._id} className="link">
-                <h2>{item.name}</h2>
+                <h2 className={cinzel.className}>
+                  {item.name.length > 50
+                    ? `${item.name.slice(0, 50)}...`
+                    : item.name}
+                </h2>
               </Link>
-              <h3>
+              <h3 className={roboto400.className}>
                 {item.price + " " + (item.currency ? item.currency : "USD")}
               </h3>
-              <section
-                style={{
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                }}
-                onClick={() => {
-                  setOrders((prevOrders) => ({
-                    email: loggedInEmail,
-                    orders: [
-                      ...prevOrders.orders,
-                      {
-                        id: item._id,
-                        name: item.name,
-                        price: item.price,
-                        timestamp: Date.now(),
-                      },
-                    ],
-                  }));
-                }}
-              >
-                <BiCartAdd size={30} />
-                <label>Add to Cart</label>
-              </section>
+              {isLoggedIn ? (
+                <section
+                  style={{
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                  onClick={() => {
+                    setOrders((prevOrders) => ({
+                      email: loggedInEmail,
+                      orders: [
+                        ...prevOrders.orders,
+                        {
+                          id: item._id,
+                          name: item.name,
+                          price: item.price,
+                          timestamp: Date.now(),
+                        },
+                      ],
+                    }));
+                  }}
+                >
+                  <label className={roboto400.className}>
+                    ADD TO CART <BiCartAdd size={20} />
+                  </label>
+                </section>
+              ) : (
+                <label className={roboto400.className}>
+                  <Link
+                    href={"/login"}
+                    className="link"
+                    style={{ color: "black" }}
+                  >
+                    LOGIN TO ADD TO CART
+                  </Link>
+                </label>
+              )}
             </div>
           ))}
       </div>

@@ -31,30 +31,9 @@
     width: auto;
 }
 
-.nav {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.nav>* {
-    margin: 30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.nav h1,
-.nav h4 {
-    font-weight: 600;
-}
 
 /*
     Media Queries 
 */
 @media(max-width:900px) {
-    .nav>* {
-        margin: 20px;
-    }
 }

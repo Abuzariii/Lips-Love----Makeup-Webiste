@@ -5,14 +5,12 @@
     justify-content: center;
     align-items: center;
 }
-
-.item  {
+.item {
     min-height: 100vh;
     min-width: 100%;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    margin-top: 100px;
 }
 
 .item div {
@@ -24,44 +22,47 @@
     align-items: center;
     text-align: center;
     margin: 10px;
-    border: 1px solid black;
+    border: 1px solid rgb(0, 0, 0, 0.3);
+    border-radius: 1rem;
+    box-shadow: 9px 9px 23px -13px rgba(0, 0, 0, 0.52);
 }
 
 .item img {
-    max-height: 100px;
+    max-height: 150px;
     width: auto;
 }
-
-.nav {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.nav>* {
-    margin: 30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.nav h1,
-.nav h4 {
+.item h2{
     font-weight: 600;
+    color: rgba(0, 0, 0, 0.8);
+    transition: transform 0.3s ease, color 0.3s ease;
 }
-
+.item h2:hover{
+    transform: scale(1.05);
+    color: rgb(211, 40, 40);
+}
 .container  section:hover{
     cursor: pointer;
 }
 .container section *:hover{
     cursor: pointer;
 }
+.container label{
+    padding: 10px;
+    width: 220px;
+    background-color: rgb(254, 185, 26);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.container label:hover {
+    cursor: pointer;
+    background-color: rgb(211, 40, 40);
+    color: white;
+}
+
 /*
     Media Queries 
 */
 @media(max-width:900px) {
-    .nav>* {
-        margin: 20px;
-    }
 }
