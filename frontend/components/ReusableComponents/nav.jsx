@@ -2,7 +2,7 @@ import classes from "./nav.module.css";
 import { DataContext } from "@/Context/dataContext";
 import { useEffect, useState, useContext } from "react";
 import Link from "next/link";
-import { poiret, pfrDisplay } from "../utils/fonts";
+import { poiret, pfrDisplay, italiana, caveat } from "../utils/fonts";
 import { RiShoppingCart2Fill } from "react-icons/ri";
 import { TiHeart } from "react-icons/ti";
 import { getToken } from "../utils/loginCheckFunctions";
@@ -12,6 +12,7 @@ export default function Nav() {
   const {
     isLoggedIn,
     setIsLoggedIn,
+    loggedInUsername,
     setLoggedInEmail,
     setLoggedInUsername,
     orders,
@@ -62,6 +63,7 @@ export default function Nav() {
       <div className={classes.cartOrLogin}>
         {isLoggedIn ? (
           <Link href={"/cart"} className="link">
+            <h2 className={caveat.className}>{loggedInUsername}</h2>
             <RiShoppingCart2Fill size={40} />
             <h4 className={poiret.className}>{orders.orders.length}</h4>
           </Link>

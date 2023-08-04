@@ -5,6 +5,7 @@
     cursor: pointer;
     margin: 120px 0;
     font-size: 4rem;
+    text-align: center;
     color: rgb(225, 78, 78);
     position: relative;
 }
@@ -34,4 +35,13 @@
     /* Remove default underline */
     transform: scale(1.05);
     /* Scale the entire element on hover */
+}
+
+/* 
+    Media Queries
+*/
+@media(max-width:900px){
+    .h1{
+        font-size: 2.8rem;
+    }
 }

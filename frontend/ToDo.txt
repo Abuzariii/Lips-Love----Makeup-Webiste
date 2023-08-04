@@ -1,6 +1,6 @@
 1 --> Fix the responsiveness of Cover page                                                          [DONE]
 2 --> Add Styles to Shop Page                                                                       [DONE]
-3 --> Create a reusable component for Brands, Categories and Product Types Pages                    
+3 --> Create a reusable component for Brands, Categories and Product Types Pages                    [DONE]
 4 --> Create reusable Navbar with Cart Items, Login/Signup and links to different pages             [DONE]
 5 --> Create a Page for an individual component
 6 --> Restyle, optimize and paginate Browse all Products Page

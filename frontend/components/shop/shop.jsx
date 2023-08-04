@@ -10,7 +10,7 @@ import { useEffect, useState } from "react";
 import Footer from "../landing/footer/footer";
 import { italiana, roboto300, caveat } from "../utils/fonts";
 import classes from "./shop.module.css";
-import Nav from "../Reusable/nav";
+import Nav from "../ReusableComponents/nav";
 
 export default function Shop() {
   const [brands, setBrands] = useState(null);

@@ -5,35 +5,3 @@
     justify-content: center;
     align-items: center;
 }
-
-.item {
-    min-height: 100vh;
-    min-width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-.item div {
-    height: 400px;
-    width: 320px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    text-align: center;
-    margin: 10px;
-    border: 1px solid black;
-}
-
-.item img {
-    max-height: 100px;
-    width: auto;
-}
-
-
-/*
-    Media Queries 
-*/
-@media(max-width:900px) {
-}

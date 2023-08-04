@@ -31,6 +31,10 @@
     transition: transform 0.1s ease;
     font-weight: 500;
 }
+.cartOrLogin h2{
+    font-size: 2rem;
+    margin-right: 30px;
+}
 
 .cartOrLogin h1:hover {
     transform: scale(1.05);
@@ -38,6 +42,9 @@
 
 @media(max-width:900px) {
     .nav>* {
-        margin: 20px;
+        margin: 10px;
+    }
+    .cartOrLogin h2{
+        margin-right: 0px;
     }
 }

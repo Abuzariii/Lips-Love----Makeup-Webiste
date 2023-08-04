@@ -1,42 +1,20 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import { useState, useEffect } from "react";
 import classes from "./type.module.css";
 import { fetchByProductType } from "../utils/fetchFunctions";
-import Link from "next/link";
-import Nav from "../Reusable/nav";
-import Title from "../Reusable/title";
+import Nav from "../ReusableComponents/nav";
+import Title from "../ReusableComponents/title";
+import ItemsLoader from "../ReusableComponents/itemsLoader";
 
 export default function Type() {
-  const [items, setItems] = useState(null);
   const product = convertPath();
 
-  useEffect(() => {
-    fetchByProductType(setItems, product);
-  }, []);
   return (
     <div className={classes.container}>
       <Nav />
       <Title brand={product} />
-      <div className={classes.item}>
-        {items &&
-          items.map((item) => (
-            <Link href={"/product/" + item._id} className="link" key={item._id}>
-              <div>
-                <img
-                  src={item.image_link}
-                  alt="alt"
-                  onError={(e) => {
-                    e.target.src = "/noImage.png";
-                  }}
-                />
-                <h2>{item.name}</h2>
-                <h3>{item.price + " " + item.currency}</h3>
-              </div>
-            </Link>
-          ))}
-      </div>
+      <ItemsLoader fetchFunc={fetchByProductType} fetchBy={product} />
     </div>
   );
 }
