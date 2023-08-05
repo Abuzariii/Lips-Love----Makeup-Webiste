@@ -1,0 +1,31 @@
+.container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+}
+
+.right {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container>div {
+    background-image: linear-gradient(315deg, #f39d14 0%, #ffdd00 100%);
+    ;
+}
+
+.container>form {
+    background-color: aqua;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container>form>div {
+    border: 5px solid black;
+    width: 70%;
+    height: 70%;
+}

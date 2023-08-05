@@ -3,6 +3,8 @@
 import { DataContext } from "@/Context/dataContext";
 import { useContext, useEffect, useRef, useState } from "react";
 import { decodeJWT } from "../utils/loginCheckFunctions";
+import classes from "./signup.module.css";
+import Left from "../ReusableComponents/left";
 
 export default function Signup() {
   const [message, setMessage] = useState("");
@@ -56,56 +58,58 @@ export default function Signup() {
   }, []);
 
   return (
-    <form
-      onSubmit={handleSubmit}
-      style={{ maxWidth: "300px", margin: "0 auto" }}
-    >
-      <div style={{ marginBottom: "10px" }}>
-        <label>Email:</label>
-        <input
-          //   type="email"
-          ref={emailRef}
-          style={{ width: "100%", padding: "5px" }}
-          required
-        />
-      </div>
-      <div style={{ marginBottom: "10px" }}>
-        <label>Username:</label>
-        <input
-          ref={usernameRef}
-          style={{ width: "100%", padding: "5px" }}
-          required
-        />
-      </div>
-      <div style={{ marginBottom: "10px" }}>
-        <label>Password:</label>
-        <input
-          //   type="password"
-          ref={passwordRef}
-          style={{ width: "100%", padding: "5px" }}
-          required
-        />
-      </div>
-      <button
-        type="submit"
-        style={{
-          padding: "8px 15px",
-          background: "#007bff",
-          color: "#fff",
-          border: "none",
-          borderRadius: "4px",
-        }}
+    <div className={classes.container}>
+      <Left />
+      <form
+        onSubmit={handleSubmit}
+        style={{ margin: "0 auto" }}
+        className={classes.right}
       >
-        Submit
-      </button>
-      <h1>{message}</h1>
-      <h1>{decodedToken ? "Logged In " : "Not logged In"}</h1>
-      {decodedToken && (
         <div>
-          <p>Username: {decodedToken.username}</p>
-          <p>Email: {decodedToken.email}</p>
+          <div style={{ marginBottom: "10px" }}>
+            <label>Email:</label>
+            <input
+              //   type="email"
+              ref={emailRef}
+              style={{ padding: "5px" }}
+              required
+            />
+          </div>
+          <div style={{ marginBottom: "10px" }}>
+            <label>Username:</label>
+            <input ref={usernameRef} style={{ padding: "5px" }} required />
+          </div>
+          <div style={{ marginBottom: "10px" }}>
+            <label>Password:</label>
+            <input
+              //   type="password"
+              ref={passwordRef}
+              style={{ padding: "5px" }}
+              required
+            />
+          </div>
+          <button
+            type="submit"
+            style={{
+              padding: "8px 15px",
+              background: "#007bff",
+              color: "#fff",
+              border: "none",
+              borderRadius: "4px",
+            }}
+          >
+            Submit
+          </button>
+          <h1>{message}</h1>
+          <h1>{decodedToken ? "Logged In " : "Not logged In"}</h1>
+          {decodedToken && (
+            <div>
+              <p>Username: {decodedToken.username}</p>
+              <p>Email: {decodedToken.email}</p>
+            </div>
+          )}
         </div>
-      )}
-    </form>
+      </form>
+    </div>
   );
 }

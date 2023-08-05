@@ -4,6 +4,9 @@ import { DataContext } from "@/Context/dataContext";
 import Link from "next/link";
 import { useContext, useEffect, useRef, useState } from "react";
 import { decodeJWT } from "../utils/loginCheckFunctions";
+import classes from "./login.module.css";
+import { poiret, roboto400, roboto300 } from "../utils/fonts";
+import Left from "../ReusableComponents/left";
 
 export default function Login() {
   const [message, setMessage] = useState("");
@@ -54,64 +57,40 @@ export default function Login() {
   }, []);
 
   return (
-    <form
-      onSubmit={handleSubmit}
-      style={{ maxWidth: "300px", margin: "0 auto" }}
-    >
-      <div style={{ marginBottom: "10px" }}>
-        <label>Email:</label>
-        <input
-          type="email"
-          ref={emailRef}
-          style={{ width: "100%", padding: "5px" }}
-          required
-        />
-      </div>
-      <div style={{ marginBottom: "10px" }}>
-        <label>Password:</label>
-        <input
-          type="password"
-          ref={passwordRef}
-          style={{ width: "100%", padding: "5px" }}
-          required
-        />
-      </div>
-      <button
-        type="submit"
-        style={{
-          padding: "8px 15px",
-          background: "#007bff",
-          color: "#fff",
-          border: "none",
-          borderRadius: "4px",
-        }}
-      >
-        Submit
-      </button>
-      <br />
-      <br />
-      <br />
-      <Link href={"/"} className="link">
-        <button
-          style={{
-            padding: "8px 15px",
-            background: "#007bff",
-            color: "#fff",
-            border: "none",
-            borderRadius: "4px",
-          }}
-        >
-          Home
-        </button>
-      </Link>
-      <h1>{message}</h1>
-      <h1>{decodedToken ? "Logged In " : "Not logged In"}</h1>
-      {decodedToken && (
-        <div>
-          <p>Username: {decodedToken.username}</p>
-          <p>Email: {decodedToken.email}</p>
+    <div className={classes.container}>
+      <Left />
+      <form onSubmit={handleSubmit} className={classes.right}>
+        <div className={classes.formDiv}>
+          <p className={roboto400.className}>Email:</p>
+          <input
+            type="email"
+            placeholder="you@email.com"
+            ref={emailRef}
+            required
+          />
+
+          <p className={roboto400.className}>Password:</p>
+          <input
+            type="password"
+            placeholder="Password"
+            ref={passwordRef}
+            required
+          />
+          <button type="submit">Submit</button>
+          <br />
+          <Link href={"/"} className="link">
+            <button>Home</button>
+          </Link>
+          <h1>{message}</h1>
+          <h1>{decodedToken ? "Logged In " : "Not logged In"}</h1>
+          {decodedToken && (
+            <div>
+              <p>Username: {decodedToken.username}</p>
+              <p>Email: {decodedToken.email}</p>
+            </div>
+          )}
         </div>
-      )}
-    </form>
+      </form>
+    </div>
   );
 }
