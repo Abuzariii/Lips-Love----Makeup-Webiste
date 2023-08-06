@@ -6,5 +6,5 @@
 6 --> Restyle, optimize and paginate Browse all Products Page
 7 --> Style Cart Page, add ability to remove items from cart and total bill
 8 --> Style final checkout page and show previous orders in that page as well
-9 --> Make reusable template for login and signup pages and style them
+9 --> Make reusable template for login and signup pages and style them                              [DONE]
 10 --> 
