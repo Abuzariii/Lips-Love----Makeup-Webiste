@@ -3,10 +3,11 @@
 import { DataContext } from "@/Context/dataContext";
 import Link from "next/link";
 import { useContext, useEffect, useRef, useState } from "react";
+import Left from "../ReusableComponents/left";
+import { roboto500, roboto400, roboto300, fjallaOne } from "../utils/fonts";
 import { decodeJWT } from "../utils/loginCheckFunctions";
 import classes from "./login.module.css";
-import { poiret, roboto400, roboto300 } from "../utils/fonts";
-import Left from "../ReusableComponents/left";
+import { AiOutlineBackward } from "react-icons/ai";
 
 export default function Login() {
   const [message, setMessage] = useState("");
@@ -32,7 +33,9 @@ export default function Login() {
       const data = await response.json();
       if (data.JWT) {
         localStorage.setItem("jwt-token", data.JWT);
-        setMessage("JWT Token received and stored in local storage");
+        setMessage("Succesfully Logged In, Happy Shopping");
+        emailRef.current.value = "";
+        passwordRef.current.value = "";
         decodeJWT(
           setDecodedToken,
           setIsLoggedIn,
@@ -44,6 +47,7 @@ export default function Login() {
       }
     } catch (error) {
       console.error("Error:", error);
+      setMessage("Failed to login");
     }
   };
 
@@ -76,18 +80,29 @@ export default function Login() {
             ref={passwordRef}
             required
           />
-          <button type="submit">Submit</button>
-          <br />
+          <button type="submit" className={roboto500.className}>
+            LOGIN
+          </button>
+          <h3 className={roboto300.className}>
+            Not a user?{" "}
+            <Link href={"/signup"} className="link">
+              {" "}
+              Signup{" "}
+            </Link>{" "}
+            instead
+          </h3>
           <Link href={"/"} className="link">
-            <button>Home</button>
+            <button className={roboto400.className}>
+              <AiOutlineBackward size={20} />
+              Back to Home
+            </button>
           </Link>
-          <h1>{message}</h1>
-          <h1>{decodedToken ? "Logged In " : "Not logged In"}</h1>
+          <h2 className={fjallaOne.className}>{message}</h2>
           {decodedToken && (
-            <div>
-              <p>Username: {decodedToken.username}</p>
-              <p>Email: {decodedToken.email}</p>
-            </div>
+            <label className={roboto400.className}>
+              You are already logged in as {decodedToken.username} @{" "}
+              {decodedToken.email}
+            </label>
           )}
         </div>
       </form>

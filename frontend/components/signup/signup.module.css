@@ -14,18 +14,108 @@
 
 .container>div {
     background-image: linear-gradient(315deg, #f39d14 0%, #ffdd00 100%);
-    ;
 }
-
 .container>form {
-    background-color: aqua;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.container>form>div {
-    border: 5px solid black;
+.formDiv {
     width: 70%;
     height: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.formDiv>* {
+    width: 100%;
+}
+
+.formDiv>p {
+    margin-bottom: 5px;
+}
+
+.formDiv>input {
+    max-width: 100%;
+    height: 40px;
+    margin-bottom: 25px;
+    border: 1px solid rgb(0, 0, 0, 0.2);
+    border-radius: 4px;
+    box-shadow: 0px 0px 5px -1px rgba(0, 0, 0, 0.08);
+    padding-left: 10px;
+}
+
+.formDiv button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    letter-spacing: 1px;
+    background-color: rgb(255, 214, 0);
+    transition: color 0.2s ease, background-color 0.2s ease;
+    margin-bottom: 20px;
+}
+
+.formDiv button * {
+    margin: 2px;
+}
+
+.formDiv button:hover {
+    cursor: pointer;
+    background-color: rgb(43, 34, 14);
+    color: white;
+}
+
+.formDiv h3 {
+    margin-bottom: 15px;
+}
+
+.formDiv h3>* {
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+.formDiv h2 {
+    color: red;
+    margin-bottom: 15px;
+}
+
+/*
+    Media Queries
+*/
+@media(max-width:900px) {
+    .container {
+        flex-direction: column;
+        height: 180vh;
+    }
+
+    .right {
+        width: 100%;
+        height: 50%;
+    }
+
+    .formDiv {
+        width: 85%;
+        height: 80%;
+    }
+}
+@media(max-width:450px){
+    .container {
+        flex-direction: column;
+        height: 150vh;
+    }
+    .formDiv{
+        height: 90%;
+    }
+}
+@media(max-width:400px){
+    .container {
+        flex-direction: column;
+        height: 150vh;
+    }
 }

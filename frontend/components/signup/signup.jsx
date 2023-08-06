@@ -2,9 +2,12 @@
 
 import { DataContext } from "@/Context/dataContext";
 import { useContext, useEffect, useRef, useState } from "react";
+import { roboto300, roboto400, roboto500, fjallaOne } from "../utils/fonts";
 import { decodeJWT } from "../utils/loginCheckFunctions";
 import classes from "./signup.module.css";
 import Left from "../ReusableComponents/left";
+import { AiOutlineBackward } from "react-icons/ai";
+import Link from "next/link";
 
 export default function Signup() {
   const [message, setMessage] = useState("");
@@ -33,7 +36,10 @@ export default function Signup() {
       const data = await response.json();
       if (data.JWT) {
         localStorage.setItem("jwt-token", data.JWT);
-        setMessage("JWT Token received and stored in local storage");
+        setMessage("Succesfully Signed Up, Happy Shopping");
+        emailRef.current.value = "";
+        usernameRef.current.value = "";
+        passwordRef.current.value = "";
         decodeJWT(
           setDecodedToken,
           setIsLoggedIn,
@@ -45,6 +51,7 @@ export default function Signup() {
       }
     } catch (error) {
       console.error("Error:", error);
+      setMessage("Failed to signup");
     }
   };
 
@@ -60,53 +67,51 @@ export default function Signup() {
   return (
     <div className={classes.container}>
       <Left />
-      <form
-        onSubmit={handleSubmit}
-        style={{ margin: "0 auto" }}
-        className={classes.right}
-      >
-        <div>
-          <div style={{ marginBottom: "10px" }}>
-            <label>Email:</label>
-            <input
-              //   type="email"
-              ref={emailRef}
-              style={{ padding: "5px" }}
-              required
-            />
-          </div>
-          <div style={{ marginBottom: "10px" }}>
-            <label>Username:</label>
-            <input ref={usernameRef} style={{ padding: "5px" }} required />
-          </div>
-          <div style={{ marginBottom: "10px" }}>
-            <label>Password:</label>
-            <input
-              //   type="password"
-              ref={passwordRef}
-              style={{ padding: "5px" }}
-              required
-            />
-          </div>
-          <button
-            type="submit"
-            style={{
-              padding: "8px 15px",
-              background: "#007bff",
-              color: "#fff",
-              border: "none",
-              borderRadius: "4px",
-            }}
-          >
-            Submit
+      <form onSubmit={handleSubmit} className={classes.right}>
+        <div className={classes.formDiv}>
+          <p className={roboto400.className}>Email:</p>
+          <input
+            type="email"
+            placeholder="you@email.com"
+            ref={emailRef}
+            required
+          />
+          <p className={roboto400.className}>Username:</p>
+          <input
+            placeholder="type your username here ..."
+            ref={usernameRef}
+            required
+          />
+          <p className={roboto400.className}>Password:</p>
+          <input
+            type="password"
+            ref={passwordRef}
+            placeholder="Password"
+            required
+          />
+          <button type="submit" className={roboto500.className}>
+            SIGNUP
           </button>
-          <h1>{message}</h1>
-          <h1>{decodedToken ? "Logged In " : "Not logged In"}</h1>
+          <h3 className={roboto300.className}>
+            Already a user?{" "}
+            <Link href={"/login"} className="link">
+              {" "}
+              Login{" "}
+            </Link>{" "}
+            instead
+          </h3>
+          <Link href={"/"} className="link">
+            <button className={roboto400.className}>
+              <AiOutlineBackward size={20} />
+              Back to Home
+            </button>
+          </Link>
+          <h2 className={fjallaOne.className}>{message}</h2>
           {decodedToken && (
-            <div>
-              <p>Username: {decodedToken.username}</p>
-              <p>Email: {decodedToken.email}</p>
-            </div>
+            <label className={roboto400.className}>
+              You are already logged in as {decodedToken.username} @{" "}
+              {decodedToken.email}
+            </label>
           )}
         </div>
       </form>
