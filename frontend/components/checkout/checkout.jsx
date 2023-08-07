@@ -1,10 +1,11 @@
 "use client";
 
-import React, { useState, useRef, useEffect } from "react";
-import classes from "./checkout.module.css";
-import { sendRequestWithToken } from "../utils/fetchFunctions";
-import { getToken } from "../utils/loginCheckFunctions";
 import Link from "next/link";
+import { useEffect, useRef, useState, useContext } from "react";
+import { DataContext } from "@/Context/dataContext";
+import { sendRequestWithToken } from "../utils/fetchFunctions";
+import classes from "./checkout.module.css";
+import { italiana, roboto400, roboto300, roboto500 } from "../utils/fonts";
 
 export default function Checkout() {
   const fullNameRef = useRef();
@@ -14,6 +15,8 @@ export default function Checkout() {
   const [contact, setContact] = useState("");
   const [address, setAddress] = useState("");
   const [isUser, setIsUser] = useState(false);
+  const [message, setMessage] = useState("");
+  const { isLoggedIn } = useContext(DataContext);
 
   const updateDetails = async (e) => {
     e.preventDefault();
@@ -23,26 +26,23 @@ export default function Checkout() {
     const address = addressRef.current.value;
 
     if (token) {
-      const response = await fetch(
-        "http://localhost:4000/user-details/update",
-        {
-          method: "PUT",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: token,
-          },
-          body: JSON.stringify({
-            fullName,
-            contactNo,
-            address,
-          }),
-        }
-      );
-      const data = await response.json();
-      console.log(data);
+      await fetch("http://localhost:4000/user-details/update", {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: token,
+        },
+        body: JSON.stringify({
+          fullName,
+          contactNo,
+          address,
+        }),
+      });
+      fullNameRef.current.value = "";
+      contactNoRef.current.value = "";
+      addressRef.current.value = "";
     } else {
-      console.log("Token not available in local storage");
-      return "Failed";
+      setMessage("Failed to update details");
     }
   };
   const uploadDetails = async (e) => {
@@ -52,26 +52,24 @@ export default function Checkout() {
     const contactNo = contactNoRef.current.value;
     const address = addressRef.current.value;
     if (token) {
-      const response = await fetch(
-        "http://localhost:4000/user-details/upload",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: token,
-          },
-          body: JSON.stringify({
-            fullName,
-            contactNo,
-            address,
-          }),
-        }
-      );
-      const data = await response.json();
-      console.log(data);
+      await fetch("http://localhost:4000/user-details/upload", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: token,
+        },
+        body: JSON.stringify({
+          fullName,
+          contactNo,
+          address,
+        }),
+      });
+      setMessage("Details Updated, place order now");
+      fullNameRef.current.value = "";
+      contactNoRef.current.value = "";
+      addressRef.current.value = "";
     } else {
-      console.log("Token not available in local storage, please login");
-      return "Failed";
+      setMessage("Failed to update details");
     }
   };
 
@@ -79,12 +77,16 @@ export default function Checkout() {
     const fetchData = async () => {
       try {
         let user = await sendRequestWithToken();
-        console.log(user);
-        if (user.fullName !== undefined) {
+        if (user.TokenExpiredError) {
+          setMessage("Your session has expired, please login again or signup");
+        } else if (user.fullName !== undefined) {
           setFullName(user.fullName);
           setAddress(user.address);
           setContact(user.contactNo);
           setIsUser(true);
+          setMessage("Current delivery details : ");
+        } else if (user.message === "Failed to fetch") {
+          setMessage("Failed to fetch details for this user");
         }
       } catch (error) {
         console.log(error);
@@ -92,40 +94,72 @@ export default function Checkout() {
     };
 
     fetchData();
-    getToken();
-  }, []);
+  }, [uploadDetails, updateDetails]);
 
   return (
-    <div className={classes.checkout}>
-      <h1>Checkout</h1>
-      <form onSubmit={updateDetails}>
-        <div className={classes.formGroup}>
-          <label htmlFor="fullName">Full Name:</label>
-          <input type="text" id="fullName" ref={fullNameRef} required />
-        </div>
-        <div className={classes.formGroup}>
-          <label htmlFor="contactNo">Contact No:</label>
-          <input type="text" id="contactNo" ref={contactNoRef} required />
-        </div>
-        <div className={classes.formGroup}>
-          <label htmlFor="address">Address:</label>
-          <textarea id="address" ref={addressRef} required />
-        </div>
-        {isUser && <button type="submit">Update Details</button>}
-        {!isUser && <button onClick={uploadDetails}>Upload Details</button>}
-      </form>
-      {isUser && <h1>User already exists, You can update the details</h1>}
-      {!isUser && (
-        <h1>No details exist for this user, please upload details</h1>
-      )}
-      <h1>Full Name : {fullName}</h1>
-      <h1>Address : {address}</h1>
-      <h1>Contact : {contact}</h1>
-      {isUser && (
-        <Link href={"/place-order"} className="link">
-          <button>Place Order</button>
-        </Link>
-      )}
+    <div className={classes.container}>
+      <div className={classes.checkout}>
+        {isUser && (
+          <form onSubmit={updateDetails}>
+            <h1 className={italiana.className}>Checkout</h1>
+            <label htmlFor="fullName" className={roboto300.className}>
+              Full Name:
+            </label>
+            <input
+              type="text"
+              id="fullName"
+              placeholder="Your name here..."
+              ref={fullNameRef}
+              required
+            />
+            <label htmlFor="contactNo" className={roboto300.className}>
+              Contact No:
+            </label>
+            <input
+              type="text"
+              id="contactNo"
+              placeholder="Contact number with country code"
+              ref={contactNoRef}
+              required
+            />
+            <label htmlFor="address" className={roboto300.className}>
+              Address:
+            </label>
+            <textarea
+              className={roboto400.className}
+              id="address"
+              placeholder="Complete address with postal code..."
+              ref={addressRef}
+              required
+            />
+            {isUser && <button type="submit">Update Details</button>}
+            {!isUser && <button onClick={uploadDetails}>Upload Details</button>}
+          </form>
+        )}
+        <h2 className={roboto400.className}>{message}</h2>
+        {isUser && (
+          <>
+            <h3 className={roboto400.className}>Full Name : {fullName}</h3>
+            <h3 className={roboto400.className}>Contact : {contact}</h3>
+            <h3 className={roboto400.className}>Address : {address}</h3>
+            <Link href={"/place-order"} className="link">
+              <button>Place Order</button>
+            </Link>
+          </>
+        )}
+        {!isLoggedIn && !isUser && (
+          <>
+            <h2 className={roboto400.className}>
+              You are not logged in, please login or signup
+            </h2>
+            <button>
+              <Link href={"/login"} className="link">
+                Login
+              </Link>
+            </button>
+          </>
+        )}
+      </div>
     </div>
   );
 }

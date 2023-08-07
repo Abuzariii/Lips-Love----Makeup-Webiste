@@ -25,7 +25,12 @@ const getUserDetails = async (req, res) => {
 
     res.status(201).json(userDetails);
   } catch (error) {
-    return res.status(500).json(error);
+    if (error.name === "TokenExpiredError") {
+      return res.status(401).json({ TokenExpiredError: "Token has expired" });
+    } else {
+      console.log(error);
+      return res.status(500).json(error);
+    }
   }
 };
 
@@ -67,7 +72,12 @@ const uploadUserDetails = async (req, res) => {
       }
     }
   } catch (error) {
-    console.log(error);
+    if (error.name === "TokenExpiredError") {
+      return res.status(401).json({ TokenExpiredError: "Token has expired" });
+    } else {
+      console.log(error);
+      return res.status(500).json(error);
+    }
   }
 };
 
@@ -103,7 +113,12 @@ const updateUserDetails = async (req, res) => {
       .status(200)
       .json({ message: `Updated details for ${updated_userDetails.email}` });
   } catch (error) {
-    return res.status(500).json(error);
+    if (error.name === "TokenExpiredError") {
+      return res.status(401).json({ TokenExpiredError: "Token has expired" });
+    } else {
+      console.log(error);
+      return res.status(500).json(error);
+    }
   }
 };
 

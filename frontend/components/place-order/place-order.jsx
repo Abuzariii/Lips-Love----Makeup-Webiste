@@ -1,13 +1,22 @@
 "use client";
 
 import classes from "./place-order.module.css";
-import { useEffect, useContext } from "react";
+import { useState, useEffect, useContext } from "react";
 import { sendRequestWithToken } from "../utils/fetchFunctions";
 import { DataContext } from "@/Context/dataContext";
 
 export default function PlaceOrder() {
   const { orders } = useContext(DataContext);
-  console.log(orders);
+  const [count, setCount] = useState(0);
+
+  let totalCount = 0;
+  orders.orders.forEach((order) => {
+    totalCount += parseInt(Math.floor(order.price));
+  });
+  useEffect(() => {
+    setCount(totalCount);
+  }, [orders.orders]);
+
   async function order() {
     if (orders.email !== "") {
       const response = await fetch("http://localhost:4000/place-order", {
@@ -37,7 +46,7 @@ export default function PlaceOrder() {
   }, []);
   return (
     <div className={classes.order}>
-      <h1>Place your order</h1>
+      <h1>Your grand total is {count}$ for x items, place order now</h1>
       <button onClick={order} className={classes.placeButton}>
         PLACE
       </button>

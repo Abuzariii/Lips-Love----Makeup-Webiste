@@ -4,7 +4,7 @@
 4 --> Create reusable Navbar with Cart Items, Login/Signup and links to different pages             [DONE]
 5 --> Create a Page for an individual component                                                     [DONE] 
 6 --> Restyle, optimize and paginate Browse all Products Page                                       [DONE]
-7 --> Style Cart Page, add ability to remove items from cart and total bill
+7 --> Style Cart Page, add ability to remove items from cart and total bill                         [DONE]
 8 --> Style final checkout page and show previous orders in that page as well
 9 --> Make reusable template for login and signup pages and style them                              [DONE]
 10 --> 
