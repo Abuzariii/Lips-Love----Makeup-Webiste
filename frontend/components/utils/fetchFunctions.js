@@ -3,7 +3,6 @@ export const fetchItems = (setData) => {
     .then((response) => response.json())
     .then((jsonData) => {
       setData(jsonData);
-      console.log(jsonData.length);
     })
     .catch((error) => console.error(error));
 };
