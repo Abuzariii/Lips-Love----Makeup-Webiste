@@ -2,7 +2,7 @@
 2 --> Add Styles to Shop Page                                                                       [DONE]
 3 --> Create a reusable component for Brands, Categories and Product Types Pages                    [DONE]
 4 --> Create reusable Navbar with Cart Items, Login/Signup and links to different pages             [DONE]
-5 --> Create a Page for an individual component
+5 --> Create a Page for an individual component                                                     [DONE] 
 6 --> Restyle, optimize and paginate Browse all Products Page
 7 --> Style Cart Page, add ability to remove items from cart and total bill
 8 --> Style final checkout page and show previous orders in that page as well

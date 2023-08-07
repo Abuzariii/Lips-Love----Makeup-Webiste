@@ -5,19 +5,15 @@
     justify-content: center;
     align-items: center;
 }
-.container > *{
-    margin-top: 30px;
-    margin-bottom: 30px;
-}
-
-.browse{
+.item{
+    margin-top: 150px;
     min-height: 100vh;
     min-width: 100%;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
 }
-.browse  div{
+.item div{
     height: 400px;
     width: 320px;
     display: flex;
@@ -26,12 +22,65 @@
     align-items: center;
     text-align: center;
     margin: 10px;
-    border: 1px solid black;
+    border: 1px solid rgb(0, 0, 0, 0.3);
+    border-radius: 1rem;
+    box-shadow: 9px 9px 23px -13px rgba(0, 0, 0, 0.52);
 }
-.browse img{
+.item img{
     max-height: 100px;
     width: auto;
 }
 .button{
+    margin: 50px 0;
+
+    background: transparent;
+    font-size: 1.3rem;
+    border-radius: 3rem;
+    padding: 20px 33px;
+    letter-spacing: 1px;
+    border: 1px solid black;
+    
+    transition: transform 0.3s ease;
+}
+.button:hover{
+    border: 1px solid rgb(169, 7, 35);
+    color: rgb(169, 7, 35);
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+
+.item h2 {
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.8);
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.item h2:hover {
+    transform: scale(1.05);
+    color: rgb(211, 40, 40);
+}
+
+.item section:hover {
+    cursor: pointer;
+}
+
+.item section *:hover {
+    cursor: pointer;
+}
+
+.item label {
     padding: 10px;
+    width: 220px;
+    background-color: rgb(254, 185, 26);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.item label:hover {
+    cursor: pointer;
+    background-color: rgb(211, 40, 40);
+    color: white;
 }
