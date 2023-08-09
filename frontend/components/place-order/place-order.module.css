@@ -1,23 +1,56 @@
 .order {
-    text-align: center;
-    margin: 20px;
+  text-align: center;
+  background-color: rgb(239, 236, 236);
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .order h1 {
-    font-size: 24px;
-    margin-bottom: 10px;
+  font-size: 2rem;
+  margin-bottom: 40px;
+  font-weight: 600;
+  color: rgb(233, 11, 48);
+}
+.order h2 {
+  font-size: 1.6rem;
+  word-spacing: 3px;
+  margin-bottom: 40px;
+  color: rgb(255, 254, 254);
+  background-color: rgba(215, 18, 18, 0.8);
+  border-radius: 8px;
+  padding: 15px;
 }
 
 .order button {
-    padding: 10px 20px;
-    font-size: 16px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
+  padding: 10px;
+  background-color: rgb(233, 11, 48);
+  color: #ffffff;
+  font-size: 18px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 20px;
+  transition: background-color 0.1s ease;
+}
+.order button * {
+  color: #ffffff;
+}
+.order button:hover {
+  background-color: rgb(236, 176, 22);
 }
 
-.order button:hover {
-    background-color: #0056b3;
+/* 
+    Media Queries
+*/
+@media (max-width: 500px) {
+  .order h1 {
+    font-size: 1.6rem;
+    margin-bottom: 40px;
+    font-weight: 600;
+    color: rgb(233, 11, 48);
+  }
 }

@@ -1,11 +1,11 @@
 "use client";
 
-import Link from "next/link";
-import { useEffect, useRef, useState, useContext } from "react";
 import { DataContext } from "@/Context/dataContext";
+import Link from "next/link";
+import { useContext, useEffect, useRef, useState } from "react";
 import { sendRequestWithToken } from "../utils/fetchFunctions";
+import { fjallaOne, italiana, roboto300, roboto400 } from "../utils/fonts";
 import classes from "./checkout.module.css";
-import { italiana, roboto400, roboto300, roboto500 } from "../utils/fonts";
 
 export default function Checkout() {
   const fullNameRef = useRef();
@@ -17,6 +17,7 @@ export default function Checkout() {
   const [isUser, setIsUser] = useState(false);
   const [message, setMessage] = useState("");
   const { isLoggedIn } = useContext(DataContext);
+  const [updateMessage, setUpdateMessage] = useState("");
 
   const updateDetails = async (e) => {
     e.preventDefault();
@@ -41,6 +42,7 @@ export default function Checkout() {
       fullNameRef.current.value = "";
       contactNoRef.current.value = "";
       addressRef.current.value = "";
+      setUpdateMessage("Details Updated Successfully");
     } else {
       setMessage("Failed to update details");
     }
@@ -68,6 +70,7 @@ export default function Checkout() {
       fullNameRef.current.value = "";
       contactNoRef.current.value = "";
       addressRef.current.value = "";
+      setUpdateMessage("Details Uploaded Successfully");
     } else {
       setMessage("Failed to update details");
     }
@@ -136,6 +139,7 @@ export default function Checkout() {
             {!isUser && <button onClick={uploadDetails}>Upload Details</button>}
           </form>
         )}
+        <h2 className={fjallaOne.className}>{updateMessage}</h2>
         <h2 className={roboto400.className}>{message}</h2>
         {isUser && (
           <>
@@ -143,7 +147,7 @@ export default function Checkout() {
             <h3 className={roboto400.className}>Contact : {contact}</h3>
             <h3 className={roboto400.className}>Address : {address}</h3>
             <Link href={"/place-order"} className="link">
-              <button>Place Order</button>
+              <button>Proceed to Place Order </button>
             </Link>
           </>
         )}
