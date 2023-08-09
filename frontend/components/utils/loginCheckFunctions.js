@@ -14,6 +14,7 @@ export function decodeJWT(
   setLoggedInUsername
 ) {
   const token = localStorage.getItem("jwt-token");
+
   try {
     const decoded = jwt.decode(token);
     setDecodedToken(decoded);

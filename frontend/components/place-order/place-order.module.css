@@ -7,6 +7,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 30px 0;
 }
 
 .order h1 {
@@ -43,6 +44,20 @@
   background-color: rgb(236, 176, 22);
 }
 
+.order > div {
+  min-width: 600px;
+  padding: 20px;
+  border: 1px solid rgb(233, 11, 48, 0.5);
+  border-radius: 2rem;
+}
+
+.order > div > div {
+  border: 1px solid #bdbcbc;
+  border-radius: 8px;
+  padding: 10px;
+  margin-bottom: 20px;
+  box-shadow: 9px 9px 23px -13px rgba(0, 0, 0, 0.52);
+}
 /* 
     Media Queries
 */

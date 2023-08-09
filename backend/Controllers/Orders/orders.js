@@ -1,9 +1,20 @@
 const OrdersDetail = require("../../MongoDB/orders");
+const jwt = require("jsonwebtoken");
 
 const placeOrder = async (req, res) => {
   const { email, orders } = req.body;
+  const token = req.header("Authorization");
+
+  if (!token) {
+    return res
+      .status(401)
+      .json({ message: "Unauthorized: Token not provided" });
+  }
 
   try {
+    const secret = "abuzar";
+    jwt.verify(token, secret);
+
     let existingOrder = await OrdersDetail.findOne({ email });
     if (existingOrder) {
       existingOrder.orders.push(...orders);
@@ -21,8 +32,45 @@ const placeOrder = async (req, res) => {
         .json({ message: `Order placed for ${placed_order.email}` });
     }
   } catch (error) {
-    return res.status(500).json(error);
+    if (error.name === "TokenExpiredError") {
+      return res.status(401).json({ TokenExpiredError: "Token has expired" });
+    } else {
+      console.log(error);
+      return res.status(500).json(error);
+    }
   }
 };
 
-module.exports = { placeOrder };
+// Get all orders
+const getOrders = async (req, res) => {
+  const { email } = req.body;
+  const token = req.header("Authorization");
+
+  if (!token) {
+    return res
+      .status(401)
+      .json({ message: "Unauthorized: Token not provided" });
+  }
+
+  try {
+    const secret = "abuzar";
+    jwt.verify(token, secret);
+
+    let existingOrder = await OrdersDetail.findOne({ email });
+
+    if (existingOrder) {
+      return res.status(200).json(existingOrder);
+    } else {
+      return res.status(201).json({ message: "No previous orders" });
+    }
+  } catch (error) {
+    if (error.name === "TokenExpiredError") {
+      return res.status(401).json({ TokenExpiredError: "Token has expired" });
+    } else {
+      console.log(error);
+      return res.status(500).json(error);
+    }
+  }
+};
+
+module.exports = { placeOrder, getOrders };
