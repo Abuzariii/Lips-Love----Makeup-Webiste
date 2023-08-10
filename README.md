@@ -5,4 +5,6 @@
 
 Click the link in decsription to view the frontend.
 
-To run the application in your own machine, download the source code zip file, extract it, run `npm install` in both frontend and backend directories, add a .env file in backend 
+To run the application in your own machine, download the source code zip file, extract it, run `npm install` in both frontend and backend directories, add a .env file in backend, create PORT and MONGO_URL variables and add your values. Finally run `npm run dev` in both directories and view the application on local host 3000.
+
+This project was built using Nextjs 13 app router on the frontend and Express/Nodejs server on the backend with MongoDB for data.
