@@ -22,7 +22,6 @@ export default function Shop() {
     fetchCategories(setCategories);
     fetchProductTypes(setProductTypes);
   }, []);
-
   return (
     <div className={classes.shop}>
       <Nav />
