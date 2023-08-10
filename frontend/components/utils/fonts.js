@@ -8,8 +8,18 @@ import {
   Cinzel_Decorative,
   Italiana,
   Caveat,
+  Abel,
+  Gruppo,
 } from "@next/font/google";
 
+export const abel = Abel({
+  weight: "400",
+  subsets: ["latin"],
+});
+export const gruppo = Gruppo({
+  weight: "400",
+  subsets: ["latin"],
+});
 export const caveat = Caveat({
   weight: "700",
   subsets: ["latin"],

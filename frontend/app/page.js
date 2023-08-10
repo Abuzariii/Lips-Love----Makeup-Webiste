@@ -18,5 +18,6 @@ export default function Home() {
 
 export const metadata = {
   title: "LIPS LOVE",
-  description: "A makeup web-app created by Nextjs 13",
+  description:
+    "A full stack e-commerce makeup web application built using Nextjs 13",
 };
